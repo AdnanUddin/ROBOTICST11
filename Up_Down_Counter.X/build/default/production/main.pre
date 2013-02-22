@@ -1269,78 +1269,95 @@ extern void _delay(unsigned long);
 # 21 "main.c"
 #pragma config BOREN = OFF, CPD = OFF, CCPMX = RB0, DEBUG = OFF, WRT = OFF, FOSC = INTOSCIO, MCLRE = OFF, WDTE = OFF, CP = OFF, LVP = OFF, PWRTE = OFF, IESO = OFF, FCMEN = OFF
 
-# 40
-void init(void){
+# 46
+int count;
 
+
+void init(void){
 OSCCON = 0b01100000;
 TRISA = 0x00;
-TRISB = 0x01;
+TRISB = 0x03;
 ANSEL = 0x00;
 
+
+RA1 = 0;
+RA0 = 0;
+RA7 = 0;
+RA6 = 0;
+RA3 = 0;
+RA2 = 0;
+RA4 = 1;
+count = 0;
+}
+
+
+void zeroDisplay(void){
+RA1 = 0;
+RA0 = 0;
+RA7 = 0;
+RA6 = 0;
+RA3 = 0;
+RA2 = 0;
+RA4 = 1;
+}
+
+
+void oneDisplay(void){
 RA1 = 1;
-RA0 = 1;
+RA0 = 0;
+RA7 = 0;
+RA6 = 1;
+RA3 = 1;
+RA2 = 1;
+RA4 = 1;
+}
+
+
+void twoDisplay(void){
+RA1 = 0;
+RA0 = 0;
 RA7 = 1;
-RA6 = 1;
-RA3 = 1;
+RA6 = 0;
+RA3 = 0;
 RA2 = 1;
-RA4 = 1;
+RA4 = 0;
 }
 
-void zero(void){
+
+void threeDisplay(void){
 RA1 = 0;
 RA0 = 0;
 RA7 = 0;
 RA6 = 0;
-RA3 = 0;
-RA2 = 0;
-RA4 = 1;
+RA3 = 1;
+RA2 = 1;
+RA4 = 0;
 }
-void one(void){
+
+
+void fourDisplay(void){
 RA1 = 1;
 RA0 = 0;
 RA7 = 0;
 RA6 = 1;
 RA3 = 1;
-RA2 = 1;
-RA4 = 1;
-}
-void two(void){
-RA1 = 0;
-RA0 = 0;
-RA7 = 1;
-RA4 = 0;
-RA3 = 0;
-RA6 = 0;
-RA2 = 1;
-}
-void three(void){
-RA1 = 0;
-RA0 = 0;
-RA4 = 0;
-RA7 = 0;
-RA6 = 0;
-RA3 = 1;
-RA2 = 1;
-}
-void four(void){
-RA2 = 0;
-RA0 = 0;
-RA4 = 0;
-RA7 = 0;
-RA1 = 1;
-RA6 = 1;
-RA3 = 1;
-}
-void five(void){
-RA1 = 0;
 RA2 = 0;
 RA4 = 0;
-RA7 = 0;
-RA6 = 0;
+}
+
+
+void fiveDisplay(void){
+RA1 = 0;
 RA0 = 1;
+RA7 = 0;
+RA6 = 0;
 RA3 = 1;
+RA2 = 0;
+RA4 = 0;
 }
-void six(void){
+
+
+void sixDisplay(void){
 RA1 = 0;
 RA2 = 0;
 RA4 = 0;
@@ -1349,7 +1366,9 @@ RA6 = 0;
 RA3 = 0;
 RA0 = 1;
 }
-void seven(void){
+
+
+void sevenDisplay(void){
 RA1 = 0;
 RA0 = 0;
 RA7 = 0;
@@ -1359,7 +1378,8 @@ RA2 = 1;
 RA4 = 1;
 }
 
-void eight(void){
+
+void eightDisplay(void){
 RA1 = 0;
 RA0 = 0;
 RA7 = 0;
@@ -1369,7 +1389,8 @@ RA2 = 0;
 RA4 = 0;
 }
 
-void nine(void){
+
+void nineDisplay(void){
 RA1 = 0;
 RA0 = 0;
 RA7 = 0;
@@ -1377,56 +1398,79 @@ RA6 = 0;
 RA3 = 1;
 RA2 = 0;
 RA4 = 0;
+}
+
+void countUp(void) {
+count = count + 1;
+}
+
+void countDown(void) {
+count = count - 1;
 }
 
 int main(void) {
 init();
-int buttonFlag = 0;
-int zero = 1;
-int one;
-int two;
-int three;
-int four;
-zero();
+
+
+int upButtonFlag = 0;
+int downButtonFlag = 0;
+
 while(1){
 
-if(RB0 == 0) {
-buttonFlag = 1;
+
+if(RB0 == 0 && upButtonFlag == 0) {
+countUp();
+upButtonFlag = 1;
+_delay((unsigned long)((100)*(8000000/4000.0)));
 }
 
-if(zero == 1 && buttonFlag == 1) {
-
-RA1 = 0;
-buttonFlag = 0;
-one = 1;
-zero = 0;
+if(RB0 == 1 && upButtonFlag == 1) {
+upButtonFlag = 0;
+_delay((unsigned long)((100)*(8000000/4000.0)));
 }
-if(one == 1 && buttonFlag == 1) {
 
-RA0=0;
-buttonFlag = 0;
-two = 1;
-one = 0;
-}
-if(two == 1 && buttonFlag == 1) {
 
-RA7=0;
-buttonFlag = 0;
-three = 1;
-two = 0;
+if(RB1 == 0 && downButtonFlag == 0) {
+countDown();
+downButtonFlag = 1;
+_delay((unsigned long)((100)*(8000000/4000.0)));
 }
-if(three == 1 && buttonFlag == 1) {
 
-RA6=0;
-buttonFlag = 0;
-four = 1;
-three =0;
+if(RB1 == 1 && downButtonFlag == 1) {
+downButtonFlag = 0;
+_delay((unsigned long)((100)*(8000000/4000.0)));
 }
-if(four == 1 && buttonFlag == 1) {
-zero();
-buttonFlag = 0;
-zero = 1;
-four = 0;
+
+
+if(count == 0) {
+zeroDisplay();
+}
+if(count == 1) {
+oneDisplay();
+}
+if(count == 2) {
+twoDisplay();
+}
+if(count == 3) {
+threeDisplay();
+}
+if(count == 4) {
+fourDisplay();
+}
+if(count == 5) {
+fiveDisplay();
+}
+if(count == 6) {
+sixDisplay();
+}
+if(count == 7) {
+sevenDisplay();
+}
+if(count == 8) {
+eightDisplay();
+}
+if(count == 9) {
+nineDisplay();
 }
 }
 }

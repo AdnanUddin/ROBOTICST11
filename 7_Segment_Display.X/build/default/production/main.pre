@@ -1287,7 +1287,8 @@ RA2 = 1;
 RA4 = 1;
 }
 
-void zero(void){
+
+void zeroDisplay(void){
 RA1 = 0;
 RA0 = 0;
 RA7 = 0;
@@ -1297,7 +1298,8 @@ RA2 = 0;
 RA4 = 1;
 }
 
-void one(void){
+
+void oneDisplay(void){
 RA1 = 1;
 RA0 = 0;
 RA7 = 0;
@@ -1307,7 +1309,8 @@ RA2 = 1;
 RA4 = 1;
 }
 
-void two(void){
+
+void twoDisplay(void){
 RA1 = 0;
 RA0 = 0;
 RA7 = 1;
@@ -1317,7 +1320,8 @@ RA2 = 1;
 RA4 = 0;
 }
 
-void three(void){
+
+void threeDisplay(void){
 RA1 = 0;
 RA0 = 0;
 RA7 = 0;
@@ -1327,7 +1331,8 @@ RA2 = 1;
 RA4 = 0;
 }
 
-void four(void){
+
+void fourDisplay(void){
 RA1 = 1;
 RA0 = 0;
 RA7 = 0;
@@ -1337,7 +1342,8 @@ RA2 = 0;
 RA4 = 0;
 }
 
-void five(void){
+
+void fiveDisplay(void){
 RA1 = 0;
 RA0 = 1;
 RA7 = 0;
@@ -1347,7 +1353,8 @@ RA2 = 0;
 RA4 = 0;
 }
 
-void six(void){
+
+void sixDisplay(void){
 RA1 = 0;
 RA2 = 0;
 RA4 = 0;
@@ -1357,7 +1364,8 @@ RA3 = 0;
 RA0 = 1;
 }
 
-void seven(void){
+
+void sevenDisplay(void){
 RA1 = 0;
 RA0 = 0;
 RA7 = 0;
@@ -1367,7 +1375,8 @@ RA2 = 1;
 RA4 = 1;
 }
 
-void eight(void){
+
+void eightDisplay(void){
 RA1 = 0;
 RA0 = 0;
 RA7 = 0;
@@ -1377,7 +1386,8 @@ RA2 = 0;
 RA4 = 0;
 }
 
-void nine(void){
+
+void nineDisplay(void){
 RA1 = 0;
 RA0 = 0;
 RA7 = 0;
@@ -1391,25 +1401,25 @@ int main() {
 init();
 
 while(1){
-one();
+zeroDisplay();
 _delay((unsigned long)((1000)*(8000000/4000.0)));
-two();
+oneDisplay();
 _delay((unsigned long)((1000)*(8000000/4000.0)));
-three();
+twoDisplay();
 _delay((unsigned long)((1000)*(8000000/4000.0)));
-four();
+threeDisplay();
 _delay((unsigned long)((1000)*(8000000/4000.0)));
-five();
+fourDisplay();
 _delay((unsigned long)((1000)*(8000000/4000.0)));
-six();
+fiveDisplay();
 _delay((unsigned long)((1000)*(8000000/4000.0)));
-seven();
+sixDisplay();
 _delay((unsigned long)((1000)*(8000000/4000.0)));
-eight();
+sevenDisplay();
 _delay((unsigned long)((1000)*(8000000/4000.0)));
-nine();
+eightDisplay();
 _delay((unsigned long)((1000)*(8000000/4000.0)));
-zero();
+nineDisplay();
 _delay((unsigned long)((1000)*(8000000/4000.0)));
 }
 }

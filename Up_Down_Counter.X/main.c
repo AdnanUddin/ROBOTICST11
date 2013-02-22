@@ -31,83 +31,106 @@
 #define F RA2
 #define G RA4
 
+// Define Up & Down Buttons
+#define UP_BUTTON RB0
+#define DOWN_BUTTON RB1
+
+// Define constants
 #define TRUE 1
 #define FALSE 0
 
 #define LOW 0
 #define HIGH 1
 
-void init(void){
+// public variables
+int count;
 
+
+void init(void){
     OSCCON = 0b01100000;	//set frequency to 4MHz
-    TRISA = 0x00;               // set all pins in PORTA as outputs, might change
-    TRISB = 0x01;               // set all pins in PORTB as outputts except RB0
+    TRISA = 0x00;               // set all pins in PORTA as outputs for 7 Segment Display
+    TRISB = 0x03;               // set RBO and RB1 to outputs
     ANSEL = 0x00;               // ignore this // dont modifu
 
+    // Initialize to 7 Segment Display and count to 0
+    A = LOW;
+    B = LOW;
+    C = LOW;
+    D = LOW;
+    E = LOW;
+    F = LOW;
+    G = HIGH;
+    count = 0;
+}
+
+// Display 0 on the 7 Segment Display (ACTIVE_LOW)
+void zeroDisplay(void){
+    A = LOW;
+    B = LOW;
+    C = LOW;
+    D = LOW;
+    E = LOW;
+    F = LOW;
+    G = HIGH;
+}
+
+// Display 1 on the 7 Segment Display (ACTIVE_LOW)
+void oneDisplay(void){
     A = HIGH;
-    B = HIGH;
+    B = LOW;
+    C = LOW;
+    D = HIGH;
+    E = HIGH;
+    F = HIGH;
+    G = HIGH;
+}
+
+// Display 2 on the 7 Segment Display (ACTIVE_LOW)
+void twoDisplay(void){
+    A = LOW;
+    B = LOW;
     C = HIGH;
-    D = HIGH;
-    E = HIGH;
+    D = LOW;
+    E = LOW;
     F = HIGH;
-    G = HIGH;
+    G = LOW;
 }
 
-void zero(void){
+// Display 3 on the 7 Segment Display (ACTIVE_LOW)
+void threeDisplay(void){
     A = LOW;
     B = LOW;
     C = LOW;
     D = LOW;
-    E = LOW;
-    F = LOW;
-    G = HIGH;
+    E = HIGH;
+    F = HIGH;
+    G = LOW;
 }
-void one(void){
+
+// Display 4 on the 7 Segment Display (ACTIVE_LOW)
+void fourDisplay(void){
     A = HIGH;
     B = LOW;
     C = LOW;
     D = HIGH;
     E = HIGH;
-    F = HIGH;
-    G = HIGH;
-}
-void two(void){
-    A = LOW;
-    B = LOW;
-    C = HIGH;
-    G = LOW;
-    E = LOW;
-    D = LOW;
-    F = HIGH;
-}
-void three(void){
-    A = LOW;
-    B = LOW;
-    G = LOW;
-    C = LOW;
-    D = LOW;
-    E = HIGH;
-    F = HIGH;
-}
-void four(void){
-    F = LOW;
-    B = LOW;
-    G = LOW;
-    C = LOW;
-    A = HIGH;
-    D = HIGH;
-    E = HIGH;
-}
-void five(void){
-    A = LOW;
     F = LOW;
     G = LOW;
-    C = LOW;
-    D = LOW;
+}
+
+// Display 5 on the 7 Segment Display (ACTIVE_LOW)
+void fiveDisplay(void){
+    A = LOW;
     B = HIGH;
+    C = LOW;
+    D = LOW;
     E = HIGH;
+    F = LOW;
+    G = LOW;
 }
-void six(void){
+
+// Display 6 on the 7 Segment Display (ACTIVE_LOW)
+void sixDisplay(void){
     A = LOW;
     F = LOW;
     G = LOW;
@@ -116,7 +139,9 @@ void six(void){
     E = LOW;
     B = HIGH;
 }
-void seven(void){
+
+// Display 7 on the 7 Segment Display (ACTIVE_LOW)
+void sevenDisplay(void){
     A = LOW;
     B = LOW;
     C = LOW;
@@ -126,7 +151,8 @@ void seven(void){
     G = HIGH;
 }
 
-void eight(void){
+// Display 8 on the 7 Segment Display (ACTIVE_LOW)
+void eightDisplay(void){
     A = LOW;
     B = LOW;
     C = LOW;
@@ -136,7 +162,8 @@ void eight(void){
     G = LOW;
 }
 
-void nine(void){
+// Display 9 on the 7 Segment Display (ACTIVE_LOW)
+void nineDisplay(void){
     A = LOW;
     B = LOW;
     C = LOW;
@@ -144,52 +171,79 @@ void nine(void){
     E = HIGH;
     F = LOW;
     G = LOW;
+}
+
+void countUp(void) {
+    count = count + 1;
+}
+
+void countDown(void) {
+    count = count - 1;
 }
 
 int main(void) {
    init(); // call the function above
-   int buttonFlag = 0;
-   int zero = 1;
-   int one;
-   int two;
-   int three;
-   int four;
-   zero();
+   
+   // Boolean
+   int upButtonFlag = FALSE;
+   int downButtonFlag = FALSE;
+
    while(TRUE){
 
-        if(RB0 == 0) {
-            buttonFlag = 1;
+        // Pressing UP_BUTTON (ACTIVE_LOW)
+        if(UP_BUTTON == LOW &&  upButtonFlag == FALSE) {
+            countUp();
+            upButtonFlag = TRUE;
+            __delay_ms(100);
+        }
+        // Releasing UP_BUTTON
+        if(UP_BUTTON == HIGH &&  upButtonFlag == TRUE) {
+            upButtonFlag = FALSE;
+            __delay_ms(100);
         }
 
-        if(zero == 1 && buttonFlag == 1) {
-            one();
-            buttonFlag = 0;
-            one = 1;
-            zero = 0;
+        // Pressing DOWN_BUTTON (ACTIVE_LOW)
+        if(DOWN_BUTTON == LOW &&  downButtonFlag == FALSE) {
+            countDown();
+            downButtonFlag = TRUE;
+            __delay_ms(100);
         }
-        if(one == 1 && buttonFlag == 1) {
-            two();
-            buttonFlag = 0;
-            two = 1;
-            one = 0;
+        // Releasing DOWN_BUTTON
+        if(DOWN_BUTTON == HIGH &&  downButtonFlag == TRUE) {
+            downButtonFlag = FALSE;
+            __delay_ms(100);
         }
-        if(two == 1 && buttonFlag == 1) {
-            three();
-            buttonFlag = 0;
-            three = 1;
-            two = 0;
+
+        // Dispay Patterns
+        if(count == 0) {
+            zeroDisplay();
         }
-        if(three == 1 && buttonFlag == 1) {
-            four();
-            buttonFlag = 0;
-            four = 1;
-            three =0;
+        if(count == 1) {
+            oneDisplay();
         }
-        if(four == 1 && buttonFlag == 1) {
-            zero();
-            buttonFlag = 0;
-            zero = 1;
-            four = 0;
+        if(count == 2) {
+            twoDisplay();
+        }
+        if(count == 3) {
+            threeDisplay();
+        }
+        if(count == 4) {
+            fourDisplay();
+        }
+        if(count == 5) {
+            fiveDisplay();
+        }
+        if(count == 6) {
+            sixDisplay();
+        }
+        if(count == 7) {
+            sevenDisplay();
+        }
+        if(count == 8) {
+            eightDisplay();
+        }
+        if(count == 9) {
+            nineDisplay();
         }
     }
 }

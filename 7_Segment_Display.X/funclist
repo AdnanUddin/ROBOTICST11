@@ -1,14 +1,14 @@
 _init: CODE, 1863 0 17
-_seven: CODE, 1783 0 10
-_five: CODE, 1803 0 10
+_fiveDisplay: CODE, 1803 0 10
+_twoDisplay: CODE, 1833 0 10
+_threeDisplay: CODE, 1823 0 10
+_sixDisplay: CODE, 1793 0 10
 _main: CODE, 1880 0 168
-_four: CODE, 1813 0 10
+_fourDisplay: CODE, 1813 0 10
+_eightDisplay: CODE, 1773 0 10
 __initialization: CODE, 1760 0 0
-_three: CODE, 1823 0 10
-_two: CODE, 1833 0 10
-_six: CODE, 1793 0 10
-_eight: CODE, 1773 0 10
-_nine: CODE, 1763 0 10
-_one: CODE, 1843 0 10
-_zero: CODE, 1853 0 10
+_oneDisplay: CODE, 1843 0 10
+_sevenDisplay: CODE, 1783 0 10
+_nineDisplay: CODE, 1763 0 10
+_zeroDisplay: CODE, 1853 0 10
 Total: 285

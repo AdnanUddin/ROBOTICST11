@@ -22,9 +22,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "2252
 [v _RA4 `Vb ~T0 @X0 0 e@44 ]
 [p mainexit ]
+"2260
+[v _RB0 `Vb ~T0 @X0 0 e@48 ]
 "151 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic.h
 [v __delay `(v ~T0 @X0 0 ef1`ul ]
 [p i __delay ]
+"2262 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
+[v _RB1 `Vb ~T0 @X0 0 e@49 ]
 [; ;pic16f88.h: 44: extern volatile unsigned char INDF @ 0x000;
 "46 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
 [; ;pic16f88.h: 46: asm("INDF equ 00h");
@@ -931,7 +935,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 43: extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 44: extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 [; ;pic.h: 151: extern void _delay(unsigned long);
-"22 main.c
+"21 main.c
 [p x BOREN=OFF ]
 [p x CPD=OFF ]
 [p x CCPMX=RB0 ]
@@ -945,440 +949,592 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x PWRTE=OFF ]
 [p x IESO=OFF ]
 [p x FCMEN=OFF ]
-"42
+"46
+[v _count `i ~T0 @X0 1 e ]
+[; ;main.c: 46: int count;
+"49
 [v _init `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 42: void init(void){
+[; ;main.c: 49: void init(void){
 [e :U _init ]
 [f ]
-[; ;main.c: 44: OSCCON = 0b01100000;
-"44
-[e = _OSCCON -> -> 96 `i `uc ]
-[; ;main.c: 45: TRISA = 0x00;
-"45
-[e = _TRISA -> -> 0 `i `uc ]
-[; ;main.c: 46: TRISB = 0x00;
-"46
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;main.c: 47: ANSEL = 0x00;
-"47
-[e = _ANSEL -> -> 0 `i `uc ]
-[; ;main.c: 50: RA1 = 1;
+[; ;main.c: 50: OSCCON = 0b01100000;
 "50
-[e = _RA1 -> -> 1 `i `b ]
-[; ;main.c: 51: RA0 = 1;
+[e = _OSCCON -> -> 96 `i `uc ]
+[; ;main.c: 51: TRISA = 0x00;
 "51
-[e = _RA0 -> -> 1 `i `b ]
-[; ;main.c: 52: RA7 = 1;
+[e = _TRISA -> -> 0 `i `uc ]
+[; ;main.c: 52: TRISB = 0x03;
 "52
-[e = _RA7 -> -> 1 `i `b ]
-[; ;main.c: 53: RA6 = 1;
+[e = _TRISB -> -> 3 `i `uc ]
+[; ;main.c: 53: ANSEL = 0x00;
 "53
-[e = _RA6 -> -> 1 `i `b ]
-[; ;main.c: 54: RA3 = 1;
-"54
-[e = _RA3 -> -> 1 `i `b ]
-[; ;main.c: 55: RA2 = 1;
-"55
-[e = _RA2 -> -> 1 `i `b ]
-[; ;main.c: 56: RA4 = 1;
+[e = _ANSEL -> -> 0 `i `uc ]
+[; ;main.c: 56: RA1 = 0;
 "56
-[e = _RA4 -> -> 1 `i `b ]
-[; ;main.c: 57: }
+[e = _RA1 -> -> 0 `i `b ]
+[; ;main.c: 57: RA0 = 0;
 "57
+[e = _RA0 -> -> 0 `i `b ]
+[; ;main.c: 58: RA7 = 0;
+"58
+[e = _RA7 -> -> 0 `i `b ]
+[; ;main.c: 59: RA6 = 0;
+"59
+[e = _RA6 -> -> 0 `i `b ]
+[; ;main.c: 60: RA3 = 0;
+"60
+[e = _RA3 -> -> 0 `i `b ]
+[; ;main.c: 61: RA2 = 0;
+"61
+[e = _RA2 -> -> 0 `i `b ]
+[; ;main.c: 62: RA4 = 1;
+"62
+[e = _RA4 -> -> 1 `i `b ]
+[; ;main.c: 63: count = 0;
+"63
+[e = _count -> 0 `i ]
+[; ;main.c: 64: }
+"64
 [e :UE 89 ]
 }
-"60
+"67
 [v _zeroDisplay `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 60: void zeroDisplay(void){
+[; ;main.c: 67: void zeroDisplay(void){
 [e :U _zeroDisplay ]
 [f ]
-[; ;main.c: 61: RA1 = 0;
-"61
-[e = _RA1 -> -> 0 `i `b ]
-[; ;main.c: 62: RA0 = 0;
-"62
-[e = _RA0 -> -> 0 `i `b ]
-[; ;main.c: 63: RA7 = 0;
-"63
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 64: RA6 = 0;
-"64
-[e = _RA6 -> -> 0 `i `b ]
-[; ;main.c: 65: RA3 = 0;
-"65
-[e = _RA3 -> -> 0 `i `b ]
-[; ;main.c: 66: RA2 = 0;
-"66
-[e = _RA2 -> -> 0 `i `b ]
-[; ;main.c: 67: RA4 = 1;
-"67
-[e = _RA4 -> -> 1 `i `b ]
-[; ;main.c: 68: }
+[; ;main.c: 68: RA1 = 0;
 "68
+[e = _RA1 -> -> 0 `i `b ]
+[; ;main.c: 69: RA0 = 0;
+"69
+[e = _RA0 -> -> 0 `i `b ]
+[; ;main.c: 70: RA7 = 0;
+"70
+[e = _RA7 -> -> 0 `i `b ]
+[; ;main.c: 71: RA6 = 0;
+"71
+[e = _RA6 -> -> 0 `i `b ]
+[; ;main.c: 72: RA3 = 0;
+"72
+[e = _RA3 -> -> 0 `i `b ]
+[; ;main.c: 73: RA2 = 0;
+"73
+[e = _RA2 -> -> 0 `i `b ]
+[; ;main.c: 74: RA4 = 1;
+"74
+[e = _RA4 -> -> 1 `i `b ]
+[; ;main.c: 75: }
+"75
 [e :UE 90 ]
 }
-"71
+"78
 [v _oneDisplay `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 71: void oneDisplay(void){
+[; ;main.c: 78: void oneDisplay(void){
 [e :U _oneDisplay ]
 [f ]
-[; ;main.c: 72: RA1 = 1;
-"72
-[e = _RA1 -> -> 1 `i `b ]
-[; ;main.c: 73: RA0 = 0;
-"73
-[e = _RA0 -> -> 0 `i `b ]
-[; ;main.c: 74: RA7 = 0;
-"74
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 75: RA6 = 1;
-"75
-[e = _RA6 -> -> 1 `i `b ]
-[; ;main.c: 76: RA3 = 1;
-"76
-[e = _RA3 -> -> 1 `i `b ]
-[; ;main.c: 77: RA2 = 1;
-"77
-[e = _RA2 -> -> 1 `i `b ]
-[; ;main.c: 78: RA4 = 1;
-"78
-[e = _RA4 -> -> 1 `i `b ]
-[; ;main.c: 79: }
+[; ;main.c: 79: RA1 = 1;
 "79
+[e = _RA1 -> -> 1 `i `b ]
+[; ;main.c: 80: RA0 = 0;
+"80
+[e = _RA0 -> -> 0 `i `b ]
+[; ;main.c: 81: RA7 = 0;
+"81
+[e = _RA7 -> -> 0 `i `b ]
+[; ;main.c: 82: RA6 = 1;
+"82
+[e = _RA6 -> -> 1 `i `b ]
+[; ;main.c: 83: RA3 = 1;
+"83
+[e = _RA3 -> -> 1 `i `b ]
+[; ;main.c: 84: RA2 = 1;
+"84
+[e = _RA2 -> -> 1 `i `b ]
+[; ;main.c: 85: RA4 = 1;
+"85
+[e = _RA4 -> -> 1 `i `b ]
+[; ;main.c: 86: }
+"86
 [e :UE 91 ]
 }
-"82
+"89
 [v _twoDisplay `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 82: void twoDisplay(void){
+[; ;main.c: 89: void twoDisplay(void){
 [e :U _twoDisplay ]
 [f ]
-[; ;main.c: 83: RA1 = 0;
-"83
-[e = _RA1 -> -> 0 `i `b ]
-[; ;main.c: 84: RA0 = 0;
-"84
-[e = _RA0 -> -> 0 `i `b ]
-[; ;main.c: 85: RA7 = 1;
-"85
-[e = _RA7 -> -> 1 `i `b ]
-[; ;main.c: 86: RA6 = 0;
-"86
-[e = _RA6 -> -> 0 `i `b ]
-[; ;main.c: 87: RA3 = 0;
-"87
-[e = _RA3 -> -> 0 `i `b ]
-[; ;main.c: 88: RA2 = 1;
-"88
-[e = _RA2 -> -> 1 `i `b ]
-[; ;main.c: 89: RA4 = 0;
-"89
-[e = _RA4 -> -> 0 `i `b ]
-[; ;main.c: 90: }
+[; ;main.c: 90: RA1 = 0;
 "90
+[e = _RA1 -> -> 0 `i `b ]
+[; ;main.c: 91: RA0 = 0;
+"91
+[e = _RA0 -> -> 0 `i `b ]
+[; ;main.c: 92: RA7 = 1;
+"92
+[e = _RA7 -> -> 1 `i `b ]
+[; ;main.c: 93: RA6 = 0;
+"93
+[e = _RA6 -> -> 0 `i `b ]
+[; ;main.c: 94: RA3 = 0;
+"94
+[e = _RA3 -> -> 0 `i `b ]
+[; ;main.c: 95: RA2 = 1;
+"95
+[e = _RA2 -> -> 1 `i `b ]
+[; ;main.c: 96: RA4 = 0;
+"96
+[e = _RA4 -> -> 0 `i `b ]
+[; ;main.c: 97: }
+"97
 [e :UE 92 ]
 }
-"93
+"100
 [v _threeDisplay `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 93: void threeDisplay(void){
+[; ;main.c: 100: void threeDisplay(void){
 [e :U _threeDisplay ]
 [f ]
-[; ;main.c: 94: RA1 = 0;
-"94
-[e = _RA1 -> -> 0 `i `b ]
-[; ;main.c: 95: RA0 = 0;
-"95
-[e = _RA0 -> -> 0 `i `b ]
-[; ;main.c: 96: RA7 = 0;
-"96
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 97: RA6 = 0;
-"97
-[e = _RA6 -> -> 0 `i `b ]
-[; ;main.c: 98: RA3 = 1;
-"98
-[e = _RA3 -> -> 1 `i `b ]
-[; ;main.c: 99: RA2 = 1;
-"99
-[e = _RA2 -> -> 1 `i `b ]
-[; ;main.c: 100: RA4 = 0;
-"100
-[e = _RA4 -> -> 0 `i `b ]
-[; ;main.c: 101: }
+[; ;main.c: 101: RA1 = 0;
 "101
+[e = _RA1 -> -> 0 `i `b ]
+[; ;main.c: 102: RA0 = 0;
+"102
+[e = _RA0 -> -> 0 `i `b ]
+[; ;main.c: 103: RA7 = 0;
+"103
+[e = _RA7 -> -> 0 `i `b ]
+[; ;main.c: 104: RA6 = 0;
+"104
+[e = _RA6 -> -> 0 `i `b ]
+[; ;main.c: 105: RA3 = 1;
+"105
+[e = _RA3 -> -> 1 `i `b ]
+[; ;main.c: 106: RA2 = 1;
+"106
+[e = _RA2 -> -> 1 `i `b ]
+[; ;main.c: 107: RA4 = 0;
+"107
+[e = _RA4 -> -> 0 `i `b ]
+[; ;main.c: 108: }
+"108
 [e :UE 93 ]
 }
-"104
+"111
 [v _fourDisplay `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 104: void fourDisplay(void){
+[; ;main.c: 111: void fourDisplay(void){
 [e :U _fourDisplay ]
 [f ]
-[; ;main.c: 105: RA1 = 1;
-"105
-[e = _RA1 -> -> 1 `i `b ]
-[; ;main.c: 106: RA0 = 0;
-"106
-[e = _RA0 -> -> 0 `i `b ]
-[; ;main.c: 107: RA7 = 0;
-"107
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 108: RA6 = 1;
-"108
-[e = _RA6 -> -> 1 `i `b ]
-[; ;main.c: 109: RA3 = 1;
-"109
-[e = _RA3 -> -> 1 `i `b ]
-[; ;main.c: 110: RA2 = 0;
-"110
-[e = _RA2 -> -> 0 `i `b ]
-[; ;main.c: 111: RA4 = 0;
-"111
-[e = _RA4 -> -> 0 `i `b ]
-[; ;main.c: 112: }
+[; ;main.c: 112: RA1 = 1;
 "112
+[e = _RA1 -> -> 1 `i `b ]
+[; ;main.c: 113: RA0 = 0;
+"113
+[e = _RA0 -> -> 0 `i `b ]
+[; ;main.c: 114: RA7 = 0;
+"114
+[e = _RA7 -> -> 0 `i `b ]
+[; ;main.c: 115: RA6 = 1;
+"115
+[e = _RA6 -> -> 1 `i `b ]
+[; ;main.c: 116: RA3 = 1;
+"116
+[e = _RA3 -> -> 1 `i `b ]
+[; ;main.c: 117: RA2 = 0;
+"117
+[e = _RA2 -> -> 0 `i `b ]
+[; ;main.c: 118: RA4 = 0;
+"118
+[e = _RA4 -> -> 0 `i `b ]
+[; ;main.c: 119: }
+"119
 [e :UE 94 ]
 }
-"115
+"122
 [v _fiveDisplay `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 115: void fiveDisplay(void){
+[; ;main.c: 122: void fiveDisplay(void){
 [e :U _fiveDisplay ]
 [f ]
-[; ;main.c: 116: RA1 = 0;
-"116
-[e = _RA1 -> -> 0 `i `b ]
-[; ;main.c: 117: RA0 = 1;
-"117
-[e = _RA0 -> -> 1 `i `b ]
-[; ;main.c: 118: RA7 = 0;
-"118
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 119: RA6 = 0;
-"119
-[e = _RA6 -> -> 0 `i `b ]
-[; ;main.c: 120: RA3 = 1;
-"120
-[e = _RA3 -> -> 1 `i `b ]
-[; ;main.c: 121: RA2 = 0;
-"121
-[e = _RA2 -> -> 0 `i `b ]
-[; ;main.c: 122: RA4 = 0;
-"122
-[e = _RA4 -> -> 0 `i `b ]
-[; ;main.c: 123: }
+[; ;main.c: 123: RA1 = 0;
 "123
-[e :UE 95 ]
-}
-"126
-[v _sixDisplay `(v ~T0 @X0 1 ef ]
-{
-[; ;main.c: 126: void sixDisplay(void){
-[e :U _sixDisplay ]
-[f ]
-[; ;main.c: 127: RA1 = 0;
-"127
 [e = _RA1 -> -> 0 `i `b ]
+[; ;main.c: 124: RA0 = 1;
+"124
+[e = _RA0 -> -> 1 `i `b ]
+[; ;main.c: 125: RA7 = 0;
+"125
+[e = _RA7 -> -> 0 `i `b ]
+[; ;main.c: 126: RA6 = 0;
+"126
+[e = _RA6 -> -> 0 `i `b ]
+[; ;main.c: 127: RA3 = 1;
+"127
+[e = _RA3 -> -> 1 `i `b ]
 [; ;main.c: 128: RA2 = 0;
 "128
 [e = _RA2 -> -> 0 `i `b ]
 [; ;main.c: 129: RA4 = 0;
 "129
 [e = _RA4 -> -> 0 `i `b ]
-[; ;main.c: 130: RA7 = 0;
+[; ;main.c: 130: }
 "130
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 131: RA6 = 0;
-"131
-[e = _RA6 -> -> 0 `i `b ]
-[; ;main.c: 132: RA3 = 0;
-"132
-[e = _RA3 -> -> 0 `i `b ]
-[; ;main.c: 133: RA0 = 1;
+[e :UE 95 ]
+}
 "133
-[e = _RA0 -> -> 1 `i `b ]
-[; ;main.c: 134: }
+[v _sixDisplay `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 133: void sixDisplay(void){
+[e :U _sixDisplay ]
+[f ]
+[; ;main.c: 134: RA1 = 0;
 "134
+[e = _RA1 -> -> 0 `i `b ]
+[; ;main.c: 135: RA2 = 0;
+"135
+[e = _RA2 -> -> 0 `i `b ]
+[; ;main.c: 136: RA4 = 0;
+"136
+[e = _RA4 -> -> 0 `i `b ]
+[; ;main.c: 137: RA7 = 0;
+"137
+[e = _RA7 -> -> 0 `i `b ]
+[; ;main.c: 138: RA6 = 0;
+"138
+[e = _RA6 -> -> 0 `i `b ]
+[; ;main.c: 139: RA3 = 0;
+"139
+[e = _RA3 -> -> 0 `i `b ]
+[; ;main.c: 140: RA0 = 1;
+"140
+[e = _RA0 -> -> 1 `i `b ]
+[; ;main.c: 141: }
+"141
 [e :UE 96 ]
 }
-"137
+"144
 [v _sevenDisplay `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 137: void sevenDisplay(void){
+[; ;main.c: 144: void sevenDisplay(void){
 [e :U _sevenDisplay ]
 [f ]
-[; ;main.c: 138: RA1 = 0;
-"138
-[e = _RA1 -> -> 0 `i `b ]
-[; ;main.c: 139: RA0 = 0;
-"139
-[e = _RA0 -> -> 0 `i `b ]
-[; ;main.c: 140: RA7 = 0;
-"140
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 141: RA6 = 1;
-"141
-[e = _RA6 -> -> 1 `i `b ]
-[; ;main.c: 142: RA3 = 1;
-"142
-[e = _RA3 -> -> 1 `i `b ]
-[; ;main.c: 143: RA2 = 1;
-"143
-[e = _RA2 -> -> 1 `i `b ]
-[; ;main.c: 144: RA4 = 1;
-"144
-[e = _RA4 -> -> 1 `i `b ]
-[; ;main.c: 145: }
+[; ;main.c: 145: RA1 = 0;
 "145
+[e = _RA1 -> -> 0 `i `b ]
+[; ;main.c: 146: RA0 = 0;
+"146
+[e = _RA0 -> -> 0 `i `b ]
+[; ;main.c: 147: RA7 = 0;
+"147
+[e = _RA7 -> -> 0 `i `b ]
+[; ;main.c: 148: RA6 = 1;
+"148
+[e = _RA6 -> -> 1 `i `b ]
+[; ;main.c: 149: RA3 = 1;
+"149
+[e = _RA3 -> -> 1 `i `b ]
+[; ;main.c: 150: RA2 = 1;
+"150
+[e = _RA2 -> -> 1 `i `b ]
+[; ;main.c: 151: RA4 = 1;
+"151
+[e = _RA4 -> -> 1 `i `b ]
+[; ;main.c: 152: }
+"152
 [e :UE 97 ]
 }
-"148
+"155
 [v _eightDisplay `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 148: void eightDisplay(void){
+[; ;main.c: 155: void eightDisplay(void){
 [e :U _eightDisplay ]
 [f ]
-[; ;main.c: 149: RA1 = 0;
-"149
-[e = _RA1 -> -> 0 `i `b ]
-[; ;main.c: 150: RA0 = 0;
-"150
-[e = _RA0 -> -> 0 `i `b ]
-[; ;main.c: 151: RA7 = 0;
-"151
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 152: RA6 = 0;
-"152
-[e = _RA6 -> -> 0 `i `b ]
-[; ;main.c: 153: RA3 = 0;
-"153
-[e = _RA3 -> -> 0 `i `b ]
-[; ;main.c: 154: RA2 = 0;
-"154
-[e = _RA2 -> -> 0 `i `b ]
-[; ;main.c: 155: RA4 = 0;
-"155
-[e = _RA4 -> -> 0 `i `b ]
-[; ;main.c: 156: }
+[; ;main.c: 156: RA1 = 0;
 "156
+[e = _RA1 -> -> 0 `i `b ]
+[; ;main.c: 157: RA0 = 0;
+"157
+[e = _RA0 -> -> 0 `i `b ]
+[; ;main.c: 158: RA7 = 0;
+"158
+[e = _RA7 -> -> 0 `i `b ]
+[; ;main.c: 159: RA6 = 0;
+"159
+[e = _RA6 -> -> 0 `i `b ]
+[; ;main.c: 160: RA3 = 0;
+"160
+[e = _RA3 -> -> 0 `i `b ]
+[; ;main.c: 161: RA2 = 0;
+"161
+[e = _RA2 -> -> 0 `i `b ]
+[; ;main.c: 162: RA4 = 0;
+"162
+[e = _RA4 -> -> 0 `i `b ]
+[; ;main.c: 163: }
+"163
 [e :UE 98 ]
 }
-"159
+"166
 [v _nineDisplay `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 159: void nineDisplay(void){
+[; ;main.c: 166: void nineDisplay(void){
 [e :U _nineDisplay ]
 [f ]
-[; ;main.c: 160: RA1 = 0;
-"160
-[e = _RA1 -> -> 0 `i `b ]
-[; ;main.c: 161: RA0 = 0;
-"161
-[e = _RA0 -> -> 0 `i `b ]
-[; ;main.c: 162: RA7 = 0;
-"162
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 163: RA6 = 0;
-"163
-[e = _RA6 -> -> 0 `i `b ]
-[; ;main.c: 164: RA3 = 1;
-"164
-[e = _RA3 -> -> 1 `i `b ]
-[; ;main.c: 165: RA2 = 0;
-"165
-[e = _RA2 -> -> 0 `i `b ]
-[; ;main.c: 166: RA4 = 0;
-"166
-[e = _RA4 -> -> 0 `i `b ]
-[; ;main.c: 167: }
+[; ;main.c: 167: RA1 = 0;
 "167
+[e = _RA1 -> -> 0 `i `b ]
+[; ;main.c: 168: RA0 = 0;
+"168
+[e = _RA0 -> -> 0 `i `b ]
+[; ;main.c: 169: RA7 = 0;
+"169
+[e = _RA7 -> -> 0 `i `b ]
+[; ;main.c: 170: RA6 = 0;
+"170
+[e = _RA6 -> -> 0 `i `b ]
+[; ;main.c: 171: RA3 = 1;
+"171
+[e = _RA3 -> -> 1 `i `b ]
+[; ;main.c: 172: RA2 = 0;
+"172
+[e = _RA2 -> -> 0 `i `b ]
+[; ;main.c: 173: RA4 = 0;
+"173
+[e = _RA4 -> -> 0 `i `b ]
+[; ;main.c: 174: }
+"174
 [e :UE 99 ]
 }
-"169
+"176
+[v _countUp `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 176: void countUp(void) {
+[e :U _countUp ]
+[f ]
+[; ;main.c: 177: count = count + 1;
+"177
+[e = _count + _count -> 1 `i ]
+[; ;main.c: 178: }
+"178
+[e :UE 100 ]
+}
+"180
+[v _countDown `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 180: void countDown(void) {
+[e :U _countDown ]
+[f ]
+[; ;main.c: 181: count = count - 1;
+"181
+[e = _count - _count -> 1 `i ]
+[; ;main.c: 182: }
+"182
+[e :UE 101 ]
+}
+"184
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 169: int main() {
+[; ;main.c: 184: int main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 170: init();
-"170
-[e ( _init ..  ]
-[; ;main.c: 172: while(1){
-"172
-[e :U 102 ]
-{
-[; ;main.c: 173: zeroDisplay();
-"173
-[e ( _zeroDisplay ..  ]
-[; ;main.c: 174: _delay((unsigned long)((1000)*(8000000/4000.0)));
-"174
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 175: oneDisplay();
-"175
-[e ( _oneDisplay ..  ]
-[; ;main.c: 176: _delay((unsigned long)((1000)*(8000000/4000.0)));
-"176
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 177: twoDisplay();
-"177
-[e ( _twoDisplay ..  ]
-[; ;main.c: 178: _delay((unsigned long)((1000)*(8000000/4000.0)));
-"178
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 179: threeDisplay();
-"179
-[e ( _threeDisplay ..  ]
-[; ;main.c: 180: _delay((unsigned long)((1000)*(8000000/4000.0)));
-"180
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 181: fourDisplay();
-"181
-[e ( _fourDisplay ..  ]
-[; ;main.c: 182: _delay((unsigned long)((1000)*(8000000/4000.0)));
-"182
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 183: fiveDisplay();
-"183
-[e ( _fiveDisplay ..  ]
-[; ;main.c: 184: _delay((unsigned long)((1000)*(8000000/4000.0)));
-"184
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 185: sixDisplay();
+[; ;main.c: 185: init();
 "185
-[e ( _sixDisplay ..  ]
-[; ;main.c: 186: _delay((unsigned long)((1000)*(8000000/4000.0)));
-"186
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 187: sevenDisplay();
-"187
-[e ( _sevenDisplay ..  ]
-[; ;main.c: 188: _delay((unsigned long)((1000)*(8000000/4000.0)));
+[e ( _init ..  ]
 "188
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 189: eightDisplay();
+[v _upButtonFlag `i ~T0 @X0 1 a ]
+[; ;main.c: 188: int upButtonFlag = 0;
+[e = _upButtonFlag -> 0 `i ]
 "189
-[e ( _eightDisplay ..  ]
-[; ;main.c: 190: _delay((unsigned long)((1000)*(8000000/4000.0)));
-"190
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 191: nineDisplay();
+[v _downButtonFlag `i ~T0 @X0 1 a ]
+[; ;main.c: 189: int downButtonFlag = 0;
+[e = _downButtonFlag -> 0 `i ]
+[; ;main.c: 191: while(1){
 "191
-[e ( _nineDisplay ..  ]
-[; ;main.c: 192: _delay((unsigned long)((1000)*(8000000/4000.0)));
-"192
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"193
-}
-[e :U 101 ]
-"172
-[e $U 102  ]
-[e :U 103 ]
-[; ;main.c: 193: }
-[; ;main.c: 194: }
+[e :U 104 ]
+{
+[; ;main.c: 194: if(RB0 == 0 && upButtonFlag == 0) {
 "194
-[e :UE 100 ]
+[e $ ! && == -> _RB0 `i -> 0 `i == _upButtonFlag -> 0 `i 106  ]
+{
+[; ;main.c: 195: countUp();
+"195
+[e ( _countUp ..  ]
+[; ;main.c: 196: upButtonFlag = 1;
+"196
+[e = _upButtonFlag -> 1 `i ]
+[; ;main.c: 197: _delay((unsigned long)((100)*(8000000/4000.0)));
+"197
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"198
+}
+[e :U 106 ]
+[; ;main.c: 198: }
+[; ;main.c: 200: if(RB0 == 1 && upButtonFlag == 1) {
+"200
+[e $ ! && == -> _RB0 `i -> 1 `i == _upButtonFlag -> 1 `i 107  ]
+{
+[; ;main.c: 201: upButtonFlag = 0;
+"201
+[e = _upButtonFlag -> 0 `i ]
+[; ;main.c: 202: _delay((unsigned long)((100)*(8000000/4000.0)));
+"202
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"203
+}
+[e :U 107 ]
+[; ;main.c: 203: }
+[; ;main.c: 206: if(RB1 == 0 && downButtonFlag == 0) {
+"206
+[e $ ! && == -> _RB1 `i -> 0 `i == _downButtonFlag -> 0 `i 108  ]
+{
+[; ;main.c: 207: countDown();
+"207
+[e ( _countDown ..  ]
+[; ;main.c: 208: downButtonFlag = 1;
+"208
+[e = _downButtonFlag -> 1 `i ]
+[; ;main.c: 209: _delay((unsigned long)((100)*(8000000/4000.0)));
+"209
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"210
+}
+[e :U 108 ]
+[; ;main.c: 210: }
+[; ;main.c: 212: if(RB1 == 1 && downButtonFlag == 1) {
+"212
+[e $ ! && == -> _RB1 `i -> 1 `i == _downButtonFlag -> 1 `i 109  ]
+{
+[; ;main.c: 213: downButtonFlag = 0;
+"213
+[e = _downButtonFlag -> 0 `i ]
+[; ;main.c: 214: _delay((unsigned long)((100)*(8000000/4000.0)));
+"214
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"215
+}
+[e :U 109 ]
+[; ;main.c: 215: }
+[; ;main.c: 218: if(count == 0) {
+"218
+[e $ ! == _count -> 0 `i 110  ]
+{
+[; ;main.c: 219: zeroDisplay();
+"219
+[e ( _zeroDisplay ..  ]
+"220
+}
+[e :U 110 ]
+[; ;main.c: 220: }
+[; ;main.c: 221: if(count == 1) {
+"221
+[e $ ! == _count -> 1 `i 111  ]
+{
+[; ;main.c: 222: oneDisplay();
+"222
+[e ( _oneDisplay ..  ]
+"223
+}
+[e :U 111 ]
+[; ;main.c: 223: }
+[; ;main.c: 224: if(count == 2) {
+"224
+[e $ ! == _count -> 2 `i 112  ]
+{
+[; ;main.c: 225: twoDisplay();
+"225
+[e ( _twoDisplay ..  ]
+"226
+}
+[e :U 112 ]
+[; ;main.c: 226: }
+[; ;main.c: 227: if(count == 3) {
+"227
+[e $ ! == _count -> 3 `i 113  ]
+{
+[; ;main.c: 228: threeDisplay();
+"228
+[e ( _threeDisplay ..  ]
+"229
+}
+[e :U 113 ]
+[; ;main.c: 229: }
+[; ;main.c: 230: if(count == 4) {
+"230
+[e $ ! == _count -> 4 `i 114  ]
+{
+[; ;main.c: 231: fourDisplay();
+"231
+[e ( _fourDisplay ..  ]
+"232
+}
+[e :U 114 ]
+[; ;main.c: 232: }
+[; ;main.c: 233: if(count == 5) {
+"233
+[e $ ! == _count -> 5 `i 115  ]
+{
+[; ;main.c: 234: fiveDisplay();
+"234
+[e ( _fiveDisplay ..  ]
+"235
+}
+[e :U 115 ]
+[; ;main.c: 235: }
+[; ;main.c: 236: if(count == 6) {
+"236
+[e $ ! == _count -> 6 `i 116  ]
+{
+[; ;main.c: 237: sixDisplay();
+"237
+[e ( _sixDisplay ..  ]
+"238
+}
+[e :U 116 ]
+[; ;main.c: 238: }
+[; ;main.c: 239: if(count == 7) {
+"239
+[e $ ! == _count -> 7 `i 117  ]
+{
+[; ;main.c: 240: sevenDisplay();
+"240
+[e ( _sevenDisplay ..  ]
+"241
+}
+[e :U 117 ]
+[; ;main.c: 241: }
+[; ;main.c: 242: if(count == 8) {
+"242
+[e $ ! == _count -> 8 `i 118  ]
+{
+[; ;main.c: 243: eightDisplay();
+"243
+[e ( _eightDisplay ..  ]
+"244
+}
+[e :U 118 ]
+[; ;main.c: 244: }
+[; ;main.c: 245: if(count == 9) {
+"245
+[e $ ! == _count -> 9 `i 119  ]
+{
+[; ;main.c: 246: nineDisplay();
+"246
+[e ( _nineDisplay ..  ]
+"247
+}
+[e :U 119 ]
+"248
+}
+[e :U 103 ]
+"191
+[e $U 104  ]
+[e :U 105 ]
+[; ;main.c: 247: }
+[; ;main.c: 248: }
+[; ;main.c: 249: }
+"249
+[e :UE 102 ]
 }

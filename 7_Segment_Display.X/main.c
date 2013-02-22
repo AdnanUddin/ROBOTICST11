@@ -56,7 +56,8 @@ void init(void){
     G = HIGH;
 }
 
-void zero(void){
+// Display 0 on the 7 Segment Display (ACTIVE_LOW)
+void zeroDisplay(void){
     A = LOW;
     B = LOW;
     C = LOW;
@@ -66,7 +67,8 @@ void zero(void){
     G = HIGH;
 }
 
-void one(void){
+// Display 1 on the 7 Segment Display (ACTIVE_LOW)
+void oneDisplay(void){
     A = HIGH;
     B = LOW;
     C = LOW;
@@ -76,7 +78,8 @@ void one(void){
     G = HIGH;
 }
 
-void two(void){
+// Display 2 on the 7 Segment Display (ACTIVE_LOW)
+void twoDisplay(void){
     A = LOW;
     B = LOW;
     C = HIGH;
@@ -86,7 +89,8 @@ void two(void){
     G = LOW;
 }
 
-void three(void){
+// Display 3 on the 7 Segment Display (ACTIVE_LOW)
+void threeDisplay(void){
     A = LOW;
     B = LOW;
     C = LOW;
@@ -96,7 +100,8 @@ void three(void){
     G = LOW;
 }
 
-void four(void){
+// Display 4 on the 7 Segment Display (ACTIVE_LOW)
+void fourDisplay(void){
     A = HIGH;
     B = LOW;
     C = LOW;
@@ -106,7 +111,8 @@ void four(void){
     G = LOW;
 }
 
-void five(void){
+// Display 5 on the 7 Segment Display (ACTIVE_LOW)
+void fiveDisplay(void){
     A = LOW;
     B = HIGH;
     C = LOW;
@@ -116,7 +122,8 @@ void five(void){
     G = LOW;
 }
 
-void six(void){
+// Display 6 on the 7 Segment Display (ACTIVE_LOW)
+void sixDisplay(void){
     A = LOW;
     F = LOW;
     G = LOW;
@@ -126,7 +133,8 @@ void six(void){
     B = HIGH;
 }
 
-void seven(void){
+// Display 7 on the 7 Segment Display (ACTIVE_LOW)
+void sevenDisplay(void){
     A = LOW;
     B = LOW;
     C = LOW;
@@ -136,7 +144,8 @@ void seven(void){
     G = HIGH;
 }
 
-void eight(void){
+// Display 8 on the 7 Segment Display (ACTIVE_LOW)
+void eightDisplay(void){
     A = LOW;
     B = LOW;
     C = LOW;
@@ -146,7 +155,8 @@ void eight(void){
     G = LOW;
 }
 
-void nine(void){
+// Display 9 on the 7 Segment Display (ACTIVE_LOW)
+void nineDisplay(void){
     A = LOW;
     B = LOW;
     C = LOW;
@@ -160,25 +170,25 @@ int main() {
    init(); // call the function above
 
    while(TRUE){
-        one();
+        zeroDisplay();
         __delay_ms(1000);
-        two();
+        oneDisplay();
         __delay_ms(1000);
-        three();
+        twoDisplay();
         __delay_ms(1000);
-        four();
+        threeDisplay();
         __delay_ms(1000);
-        five();
+        fourDisplay();
         __delay_ms(1000);
-        six();
+        fiveDisplay();
         __delay_ms(1000);
-        seven();
+        sixDisplay();
         __delay_ms(1000);
-        eight();
+        sevenDisplay();
         __delay_ms(1000);
-        nine();
+        eightDisplay();
         __delay_ms(1000);
-        zero();
+        nineDisplay();
         __delay_ms(1000);
     }
 }
