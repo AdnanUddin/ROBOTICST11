@@ -27,171 +27,34 @@
 #define green RB1
 #define blue RB2
 
-#define A RA0
-#define B RA1
-#define C RA2
-#define D RA3
-#define E RA4
-#define F RA5
-#define G RA6
-
-
 #define ON 1
 #define OFF 0
 
 void init(void){
 
     OSCCON = 0b01100000;	//set frequency to 4MHz
-    TRISA = 0x00;               // set all pins in PORTA as outputs, might change
+    TRISA = 0x00;               // set all pins in PORTA as outputs
     TRISB = 0x00;               // set all pins in PORTB as outputs
-    ANSEL = 0x00;               // ignore this // dont modifu
+    ANSEL = 0x00;               // ignore this
 
-}
-
-void one(void){
-    B = ON;
-    C = ON;
-}
-void two(void){
-    A = ON;
-    B = ON;
-    G = ON;
-    E = ON;
-    D = ON;
-}
-void three(void){
-    A = ON;
-    B = ON;
-    G = ON;
-    C = ON;
-    D = ON;
-}
-void four(void){
-    F = ON;
-    B = ON;
-    G = ON;
-    C = ON;
-}
-void five(void){
-    A = ON;
-    F = ON;
-    G = ON;
-    C = ON;
-    D = ON;
-}
-void six(void){
-    A = ON;
-    F = ON;
-    G = ON;
-    C = ON;
-    D = ON;
-    E = ON;
-}
-void seven(void){
-    A = ON;
-    B = ON;
-    C = ON;
-}
-void oneOff(void){
-    B = OFF;
-    C = OFF;
-}
-void twoOff(void){
-    A = OFF;
-    B = OFF;
-    G = OFF;
-    E = OFF;
-    D = OFF;
-}
-void threeOff(void){
-    A = OFF;
-    B = OFF;
-    G = OFF;
-    C = OFF;
-    D = OFF;
-}
-void fourOff(void){
-    F = OFF;
-    B = OFF;
-    G = OFF;
-    C = OFF;
-}
-void fiveOff(void){
-    A = OFF;
-    F = OFF;
-    G = OFF;
-    C = OFF;
-    D = OFF;
-}
-void sixOff(void){
-    A = OFF;
-    F = OFF;
-    G = OFF;
-    C = OFF;
-    D = OFF;
-    E = OFF;
-}
-void sevenOff(void){
-    A = OFF;
-    B = OFF;
-    C = OFF;
 }
 
 int main() {
     init(); // call the function above
 
     while(1){
-        
-       // green = OFF;
-        //blue = ON;
-       // red = OFF;
-        
-       // __delay_ms(1000);
-        //green = OFF;
-        //blue = ON;
-       // red = ON;
-        ///
-        A = OFF;
-        B = OFF;
-        C = OFF;
-        D = OFF;
-        E = OFF;
-        F = OFF;
+        green = OFF;
+        blue = ON;
+        red = OFF;
         __delay_ms(1000);
-       // green = ON;
-        //blue = OFF;
-       // red = OFF;
-       // __delay_ms(1000);
-
-        A = ON;
-        B = ON;
-        C = ON;
-        D = ON;
-        E = ON;
-        F = ON;
-        /*
-         one();
-         __delay_ms(1000);
-         oneOff();
-         two();
-         __delay_ms(1000);
-         twoOff();
-         three();
-         __delay_ms(1000);
-         threeOff();
-         four();
-         __delay_ms(1000);
-         fourOff();
-         five();
-         __delay_ms(1000);
-         fiveOff();
-         six();
-         __delay_ms(1000);
-         sixOff();
-         seven();
-         __delay_ms(1000);
-         sevenOff();
-         */
+        green = OFF;
+        blue = OFF;
+        red = ON;
+        __delay_ms(1000);
+        green = ON;
+        blue = OFF;
+        red = OFF;
+        __delay_ms(1000);
     }
 }
 

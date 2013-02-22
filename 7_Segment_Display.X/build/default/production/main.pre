@@ -1266,7 +1266,7 @@ extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsi
 extern void _delay(unsigned long);
 
 
-# 21 "main.c"
+# 22 "main.c"
 #pragma config BOREN = OFF, CPD = OFF, CCPMX = RB0, DEBUG = OFF, WRT = OFF, FOSC = INTOSCIO, MCLRE = OFF, WDTE = OFF, CP = OFF, LVP = OFF, PWRTE = OFF, IESO = OFF, FCMEN = OFF
 
 # 42
@@ -1274,8 +1274,9 @@ void init(void){
 
 OSCCON = 0b01100000;
 TRISA = 0x00;
-TRISB = 0x01;
+TRISB = 0x00;
 ANSEL = 0x00;
+
 
 RA1 = 1;
 RA0 = 1;
@@ -1295,6 +1296,7 @@ RA3 = 0;
 RA2 = 0;
 RA4 = 1;
 }
+
 void one(void){
 RA1 = 1;
 RA0 = 0;
@@ -1304,42 +1306,47 @@ RA3 = 1;
 RA2 = 1;
 RA4 = 1;
 }
+
 void two(void){
 RA1 = 0;
 RA0 = 0;
 RA7 = 1;
-RA4 = 0;
-RA3 = 0;
 RA6 = 0;
+RA3 = 0;
 RA2 = 1;
+RA4 = 0;
 }
+
 void three(void){
 RA1 = 0;
 RA0 = 0;
-RA4 = 0;
 RA7 = 0;
 RA6 = 0;
 RA3 = 1;
 RA2 = 1;
-}
-void four(void){
-RA2 = 0;
-RA0 = 0;
 RA4 = 0;
-RA7 = 0;
+}
+
+void four(void){
 RA1 = 1;
+RA0 = 0;
+RA7 = 0;
 RA6 = 1;
 RA3 = 1;
-}
-void five(void){
-RA1 = 0;
 RA2 = 0;
 RA4 = 0;
+}
+
+void five(void){
+RA1 = 0;
+RA0 = 1;
 RA7 = 0;
 RA6 = 0;
-RA0 = 1;
 RA3 = 1;
+RA2 = 0;
+RA4 = 0;
 }
+
 void six(void){
 RA1 = 0;
 RA2 = 0;
@@ -1349,6 +1356,7 @@ RA6 = 0;
 RA3 = 0;
 RA0 = 1;
 }
+
 void seven(void){
 RA1 = 0;
 RA0 = 0;
@@ -1381,59 +1389,27 @@ RA4 = 0;
 
 int main() {
 init();
-int buttonFlag = 0;
-int zero = 1;
-int one;
-int two;
-int three;
-int four;
 
 while(1){
-
-if(RB0 == 0) {
-buttonFlag = 1;
-}
-
-if(zero == 1 && buttonFlag == 1) {
-
-RA1 = 0;
-buttonFlag = 0;
-one = 1;
-zero = 0;
-}
-if(one == 1 && buttonFlag == 1) {
-
-RA0=0;
-buttonFlag = 0;
-two = 1;
-one = 0;
-}
-if(two == 1 && buttonFlag == 1) {
-
-RA7=0;
-buttonFlag = 0;
-three = 1;
-two = 0;
-}
-if(three == 1 && buttonFlag == 1) {
-
-RA6=0;
-buttonFlag = 0;
-four = 1;
-three =0;
-}
-if(four == 1 && buttonFlag == 1) {
-
-RA1=1;
-RA0=1;
-RA7=1;
-RA6=1;
-buttonFlag = 0;
-zero = 1;
-four = 0;
-}
-
-# 226
+one();
+_delay((unsigned long)((1000)*(8000000/4000.0)));
+two();
+_delay((unsigned long)((1000)*(8000000/4000.0)));
+three();
+_delay((unsigned long)((1000)*(8000000/4000.0)));
+four();
+_delay((unsigned long)((1000)*(8000000/4000.0)));
+five();
+_delay((unsigned long)((1000)*(8000000/4000.0)));
+six();
+_delay((unsigned long)((1000)*(8000000/4000.0)));
+seven();
+_delay((unsigned long)((1000)*(8000000/4000.0)));
+eight();
+_delay((unsigned long)((1000)*(8000000/4000.0)));
+nine();
+_delay((unsigned long)((1000)*(8000000/4000.0)));
+zero();
+_delay((unsigned long)((1000)*(8000000/4000.0)));
 }
 }
-

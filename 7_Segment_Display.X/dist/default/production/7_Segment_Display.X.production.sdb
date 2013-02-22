@@ -104,27 +104,27 @@
 [v ___fltoee `(d  1 e 3 0 ]
 "42 main.c
 [v _init `(v  1 e 0 0 ]
-"58
+"59
 [v _zero `(v  1 e 0 0 ]
-"67
+"69
 [v _one `(v  1 e 0 0 ]
-"76
+"79
 [v _two `(v  1 e 0 0 ]
-"85
+"89
 [v _three `(v  1 e 0 0 ]
-"94
+"99
 [v _four `(v  1 e 0 0 ]
-"103
+"109
 [v _five `(v  1 e 0 0 ]
-"112
+"119
 [v _six `(v  1 e 0 0 ]
-"121
+"129
 [v _seven `(v  1 e 0 0 ]
-"131
+"139
 [v _eight `(v  1 e 0 0 ]
-"141
+"149
 [v _nine `(v  1 e 0 0 ]
-"151
+"159
 [v _main `(i  1 e 2 0 ]
 "1986 /Volumes/build/bamboo/xml-data/build-dir/XC8-RELEASE-JOB1/nz/build/dist/osx/include/pic16f88.h
 [v _EEDATA `VEuc  1 e 1 @268 ]
@@ -166,27 +166,63 @@
 [v _RA6 `VEb  1 e 0 @46 ]
 "2258
 [v _RA7 `VEb  1 e 0 @47 ]
-"2260
-[v _RB0 `VEb  1 e 0 @48 ]
-"151 main.c
+"159 main.c
 [v _main `(i  1 e 2 0 ]
 {
-"153
-[v main@buttonFlag `i  1 a 2 10 ]
-"154
-[v main@zero `i  1 a 2 8 ]
-"158
-[v main@four `i  1 a 2 6 ]
-"157
-[v main@three `i  1 a 2 4 ]
-"156
-[v main@two `i  1 a 2 2 ]
-"155
-[v main@one `i  1 a 2 0 ]
-"227
+"184
 } 0
 "42
 [v _init `(v  1 e 0 0 ]
 {
-"56
+"57
+} 0
+"59
+[v _zero `(v  1 e 0 0 ]
+{
+"67
+} 0
+"69
+[v _one `(v  1 e 0 0 ]
+{
+"77
+} 0
+"79
+[v _two `(v  1 e 0 0 ]
+{
+"87
+} 0
+"89
+[v _three `(v  1 e 0 0 ]
+{
+"97
+} 0
+"99
+[v _four `(v  1 e 0 0 ]
+{
+"107
+} 0
+"109
+[v _five `(v  1 e 0 0 ]
+{
+"117
+} 0
+"119
+[v _six `(v  1 e 0 0 ]
+{
+"127
+} 0
+"129
+[v _seven `(v  1 e 0 0 ]
+{
+"137
+} 0
+"139
+[v _eight `(v  1 e 0 0 ]
+{
+"147
+} 0
+"149
+[v _nine `(v  1 e 0 0 ]
+{
+"157
 } 0

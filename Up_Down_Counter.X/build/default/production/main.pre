@@ -1269,7 +1269,7 @@ extern void _delay(unsigned long);
 # 21 "main.c"
 #pragma config BOREN = OFF, CPD = OFF, CCPMX = RB0, DEBUG = OFF, WRT = OFF, FOSC = INTOSCIO, MCLRE = OFF, WDTE = OFF, CP = OFF, LVP = OFF, PWRTE = OFF, IESO = OFF, FCMEN = OFF
 
-# 42
+# 40
 void init(void){
 
 OSCCON = 0b01100000;
@@ -1379,7 +1379,7 @@ RA2 = 0;
 RA4 = 0;
 }
 
-int main() {
+int main(void) {
 init();
 int buttonFlag = 0;
 int zero = 1;
@@ -1387,7 +1387,7 @@ int one;
 int two;
 int three;
 int four;
-
+zero();
 while(1){
 
 if(RB0 == 0) {
@@ -1423,17 +1423,11 @@ four = 1;
 three =0;
 }
 if(four == 1 && buttonFlag == 1) {
-
-RA1=1;
-RA0=1;
-RA7=1;
-RA6=1;
+zero();
 buttonFlag = 0;
 zero = 1;
 four = 0;
 }
-
-# 226
 }
 }
 
