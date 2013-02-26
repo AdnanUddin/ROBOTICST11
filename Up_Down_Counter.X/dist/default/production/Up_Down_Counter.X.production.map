@@ -15,7 +15,7 @@ Linker command line:
   -ACONFIG=02007h-02008h -pconfig=CONFIG -DCONFIG=2 -AIDLOC=02000h-02003h \
   -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA \
   -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\c\AppData\Local\Temp\s2lk.obj \
+  C:\Users\c\AppData\Local\Temp\s3u0.obj \
   dist/default/production\Up_Down_Counter.X.production.obj 
 
 Object code version is 3.10
@@ -25,48 +25,48 @@ Machine type is 16F88
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\c\AppData\Local\Temp\s2lk.obj
+C:\Users\c\AppData\Local\Temp\s3u0.obj
                 end_init                              0        0        2        0       0
                 config                             2007     2007        2     400E       0
 dist/default/production\Up_Down_Counter.X.production.obj
-                text169                             681      681        9      D02       0
-                text168                             68A      68A        9      D14       0
-                text167                             693      693        A      D26       0
-                text166                             69D      69D        A      D3A       0
-                text165                             6A7      6A7        A      D4E       0
-                text164                             6B1      6B1        A      D62       0
-                text163                             6BB      6BB        A      D76       0
-                text162                             6C5      6C5        A      D8A       0
-                text161                             6CF      6CF        A      D9E       0
-                text160                             6D9      6D9        A      DB2       0
-                text159                             6E3      6E3        A      DC6       0
-                text158                             6ED      6ED        A      DDA       0
-                text157                             6F7      6F7       14      DEE       0
+                text169                             6CC      6CC       12      D98       0
+                text168                             6F2      6F2       19      DE4       0
+                text167                             668      668        A      CD0       0
+                text166                             672      672        A      CE4       0
+                text165                             67C      67C        A      CF8       0
+                text164                             686      686        A      D0C       0
+                text163                             690      690        A      D20       0
+                text162                             69A      69A        A      D34       0
+                text161                             6A4      6A4        A      D48       0
+                text160                             6AE      6AE        A      D5C       0
+                text159                             6B8      6B8        A      D70       0
+                text158                             6C2      6C2        A      D84       0
+                text157                             6DE      6DE       14      DBC       0
                 maintext                            70B      70B       F5      E16       0
                 cstackCOMMON                         70       70        7       70       1
                 bssCOMMON                            77       77        2       70       1
-                cinit                               67C      67C        5      CF8       0
+                cinit                               663      663        5      CC6       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CONST          
 
         CLASS   CODE           
                 end_init                              0        0        2         0
-                text169                             681      681        9         0
-                text168                             68A      68A        9         0
-                text167                             693      693        A         0
-                text166                             69D      69D        A         0
-                text165                             6A7      6A7        A         0
-                text164                             6B1      6B1        A         0
-                text163                             6BB      6BB        A         0
-                text162                             6C5      6C5        A         0
-                text161                             6CF      6CF        A         0
-                text160                             6D9      6D9        A         0
-                text159                             6E3      6E3        A         0
-                text158                             6ED      6ED        A         0
-                text157                             6F7      6F7       14         0
+                text169                             6CC      6CC       12         0
+                text168                             6F2      6F2       19         0
+                text167                             668      668        A         0
+                text166                             672      672        A         0
+                text165                             67C      67C        A         0
+                text164                             686      686        A         0
+                text163                             690      690        A         0
+                text162                             69A      69A        A         0
+                text161                             6A4      6A4        A         0
+                text160                             6AE      6AE        A         0
+                text159                             6B8      6B8        A         0
+                text158                             6C2      6C2        A         0
+                text157                             6DE      6DE       14         0
                 maintext                            70B      70B       F5         0
-                cinit                               67C      67C        5         0
+                cinit                               663      663        5         0
 
         CLASS   STRCODE        
 
@@ -112,20 +112,20 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 
                 reset_vec                      000000  000002  000002         0       0  CODE        2
                 cstackCOMMON                   000070  000009  000079        70       1  COMMON      1
-                cinit                          00067C  000005  000681       CF8       0  CODE        2
-                text169                        000681  000009  00068A       D02       0  CODE        2
-                text168                        00068A  000009  000693       D14       0  CODE        2
-                text167                        000693  00000A  00069D       D26       0  CODE        2
-                text166                        00069D  00000A  0006A7       D3A       0  CODE        2
-                text165                        0006A7  00000A  0006B1       D4E       0  CODE        2
-                text164                        0006B1  00000A  0006BB       D62       0  CODE        2
-                text163                        0006BB  00000A  0006C5       D76       0  CODE        2
-                text162                        0006C5  00000A  0006CF       D8A       0  CODE        2
-                text161                        0006CF  00000A  0006D9       D9E       0  CODE        2
-                text160                        0006D9  00000A  0006E3       DB2       0  CODE        2
-                text159                        0006E3  00000A  0006ED       DC6       0  CODE        2
-                text158                        0006ED  00000A  0006F7       DDA       0  CODE        2
-                text157                        0006F7  000014  00070B       DEE       0  CODE        2
+                cinit                          000663  000005  000668       CC6       0  CODE        2
+                text167                        000668  00000A  000672       CD0       0  CODE        2
+                text166                        000672  00000A  00067C       CE4       0  CODE        2
+                text165                        00067C  00000A  000686       CF8       0  CODE        2
+                text164                        000686  00000A  000690       D0C       0  CODE        2
+                text163                        000690  00000A  00069A       D20       0  CODE        2
+                text162                        00069A  00000A  0006A4       D34       0  CODE        2
+                text161                        0006A4  00000A  0006AE       D48       0  CODE        2
+                text160                        0006AE  00000A  0006B8       D5C       0  CODE        2
+                text159                        0006B8  00000A  0006C2       D70       0  CODE        2
+                text158                        0006C2  00000A  0006CC       D84       0  CODE        2
+                text169                        0006CC  000012  0006DE       D98       0  CODE        2
+                text157                        0006DE  000014  0006F2       DBC       0  CODE        2
+                text168                        0006F2  000019  00070B       DE4       0  CODE        2
                 maintext                       00070B  0000F5  000800       E16       0  CODE        2
                 config                         002007  000002  002009      400E       0  CONFIG      2
 
@@ -137,13 +137,13 @@ UNUSED ADDRESS RANGES
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
-        CODE             0002-067B            67A           2
+        CODE             0002-0662            661           2
                          0800-0FFF            800
         COMMON           0079-007D              5           1
-        CONST            0002-067B            100           2
+        CONST            0002-0662            100           2
                          0800-0FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            0002-067B            100           2
+        ENTRY            0002-0662            100           2
                          0800-0FFF            100
         IDLOC            2000-2003              4           2
         RAM              0020-006F             50           1
@@ -154,9 +154,9 @@ UNUSED ADDRESS RANGES
         SFR1             0080-009F             20           1
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
-        STRCODE          0002-067B            67A           2
+        STRCODE          0002-0662            661           2
                          0800-0FFF            800
-        STRING           0002-067B            100           2
+        STRING           0002-0662            100           2
                          0800-0FFF            100
 
                                   Symbol Table
@@ -246,39 +246,39 @@ __Ltext                  text         0000
 __S0                     (abs)        2009
 __S1                     (abs)        0079
 __S2                     (abs)        0000
-__end_of__initialization cinit        067E
-__end_of_countDown       text169      068A
-__end_of_countUp         text168      0693
-__end_of_eightDisplay    text166      06A7
-__end_of_fiveDisplay     text163      06C5
-__end_of_fourDisplay     text162      06CF
-__end_of_init            text157      070B
+__end_of__initialization cinit        0665
+__end_of_countDown       text169      06DE
+__end_of_countUp         text168      070B
+__end_of_eightDisplay    text166      067C
+__end_of_fiveDisplay     text163      069A
+__end_of_fourDisplay     text162      06A4
+__end_of_init            text157      06F2
 __end_of_main            maintext     0800
-__end_of_nineDisplay     text167      069D
-__end_of_oneDisplay      text159      06ED
-__end_of_sevenDisplay    text165      06B1
-__end_of_sixDisplay      text164      06BB
-__end_of_threeDisplay    text161      06D9
-__end_of_twoDisplay      text160      06E3
-__end_of_zeroDisplay     text158      06F7
-__initialization         cinit        067C
+__end_of_nineDisplay     text167      0672
+__end_of_oneDisplay      text159      06C2
+__end_of_sevenDisplay    text165      0686
+__end_of_sixDisplay      text164      0690
+__end_of_threeDisplay    text161      06AE
+__end_of_twoDisplay      text160      06B8
+__end_of_zeroDisplay     text158      06CC
+__initialization         cinit        0663
 __pbssCOMMON             bssCOMMON    0077
 __pcstackCOMMON          cstackCOMMON 0070
 __pmaintext              maintext     070B
 __ptext156               text156      0000
-__ptext157               text157      06F7
-__ptext158               text158      06ED
-__ptext159               text159      06E3
-__ptext160               text160      06D9
-__ptext161               text161      06CF
-__ptext162               text162      06C5
-__ptext163               text163      06BB
-__ptext164               text164      06B1
-__ptext165               text165      06A7
-__ptext166               text166      069D
-__ptext167               text167      0693
-__ptext168               text168      068A
-__ptext169               text169      0681
+__ptext157               text157      06DE
+__ptext158               text158      06C2
+__ptext159               text159      06B8
+__ptext160               text160      06AE
+__ptext161               text161      06A4
+__ptext162               text162      069A
+__ptext163               text163      0690
+__ptext164               text164      0686
+__ptext165               text165      067C
+__ptext166               text166      0672
+__ptext167               text167      0668
+__ptext168               text168      06F2
+__ptext169               text169      06CC
 __ptext170               text170      0000
 __size_of_countDown      (abs)        0000
 __size_of_countUp        (abs)        0000
@@ -295,22 +295,22 @@ __size_of_threeDisplay   (abs)        0000
 __size_of_twoDisplay     (abs)        0000
 __size_of_zeroDisplay    (abs)        0000
 _count                   bssCOMMON    0077
-_countDown               text169      0681
-_countUp                 text168      068A
-_eightDisplay            text166      069D
-_fiveDisplay             text163      06BB
-_fourDisplay             text162      06C5
-_init                    text157      06F7
+_countDown               text169      06CC
+_countUp                 text168      06F2
+_eightDisplay            text166      0672
+_fiveDisplay             text163      0690
+_fourDisplay             text162      069A
+_init                    text157      06DE
 _main                    maintext     070B
-_nineDisplay             text167      0693
-_oneDisplay              text159      06E3
-_sevenDisplay            text165      06A7
-_sixDisplay              text164      06B1
-_threeDisplay            text161      06CF
-_twoDisplay              text160      06D9
-_zeroDisplay             text158      06ED
+_nineDisplay             text167      0668
+_oneDisplay              text159      06B8
+_sevenDisplay            text165      067C
+_sixDisplay              text164      0686
+_threeDisplay            text161      06A4
+_twoDisplay              text160      06AE
+_zeroDisplay             text158      06C2
 btemp                    (abs)        007E
-end_of_initialization    cinit        067E
+end_of_initialization    cinit        0665
 intlevel0                functab      0000
 intlevel1                functab      0000
 intlevel2                functab      0000
@@ -321,7 +321,7 @@ main@downButtonFlag      cstackCOMMON 0075
 main@upButtonFlag        cstackCOMMON 0073
 reset_vec                reset_vec    0000
 start                    init         0000
-start_initialization     cinit        067C
+start_initialization     cinit        0663
 wtemp0                   (abs)        007E
 
 
@@ -329,16 +329,16 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 184 in file "main.c"
+		line 192 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
   downButtonFl    2    5[COMMON] int 
   upButtonFlag    2    3[COMMON] int 
  Return value:  Size  Location     Type
-                  2   71[COMMON] int 
+                  2   73[COMMON] int 
  Registers used:
-		wreg, status,2, status,0, pclath, cstack
+		wreg, status,2, status,0, btemp+1, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -698,7 +698,7 @@ Total ram usage:        0 bytes
  Return value:  Size  Location     Type
 		None               void
  Registers used:
-		wreg, status,2, status,0
+		wreg, status,2, status,0, btemp+1
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -719,7 +719,7 @@ Total ram usage:        0 bytes
 
  *************** function _countDown *****************
  Defined at:
-		line 180 in file "main.c"
+		line 184 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -751,25 +751,25 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 shared
-		__initializatio		CODE           	067C	0000	2
+		__initializatio		CODE           	0663	0000	2
 
 shared estimated size: 2
 
 main.c
-		_init          		CODE           	06F7	0000	20
-		_fiveDisplay   		CODE           	06BB	0000	10
-		_twoDisplay    		CODE           	06D9	0000	10
-		_threeDisplay  		CODE           	06CF	0000	10
-		_countUp       		CODE           	068A	0000	9
-		_sixDisplay    		CODE           	06B1	0000	10
+		_init          		CODE           	06DE	0000	20
+		_fiveDisplay   		CODE           	0690	0000	10
+		_twoDisplay    		CODE           	06AE	0000	10
+		_threeDisplay  		CODE           	06A4	0000	10
+		_countUp       		CODE           	06F2	0000	25
+		_sixDisplay    		CODE           	0686	0000	10
 		_main          		CODE           	070B	0000	245
-		_fourDisplay   		CODE           	06C5	0000	10
-		_eightDisplay  		CODE           	069D	0000	10
-		_oneDisplay    		CODE           	06E3	0000	10
-		_countDown     		CODE           	0681	0000	9
-		_sevenDisplay  		CODE           	06A7	0000	10
-		_nineDisplay   		CODE           	0693	0000	10
-		_zeroDisplay   		CODE           	06ED	0000	10
+		_fourDisplay   		CODE           	069A	0000	10
+		_eightDisplay  		CODE           	0672	0000	10
+		_oneDisplay    		CODE           	06B8	0000	10
+		_countDown     		CODE           	06CC	0000	18
+		_sevenDisplay  		CODE           	067C	0000	10
+		_nineDisplay   		CODE           	0668	0000	10
+		_zeroDisplay   		CODE           	06C2	0000	10
 
-main.c estimated size: 383
+main.c estimated size: 408
 

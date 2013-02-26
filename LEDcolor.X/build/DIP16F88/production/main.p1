@@ -7,23 +7,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
 "1688
 [v _ANSEL `Vuc ~T0 @X0 0 e@155 ]
-"2246
-[v _RA1 `Vb ~T0 @X0 0 e@41 ]
-"2244
-[v _RA0 `Vb ~T0 @X0 0 e@40 ]
-"2258
-[v _RA7 `Vb ~T0 @X0 0 e@47 ]
-"2256
-[v _RA6 `Vb ~T0 @X0 0 e@46 ]
-"2250
-[v _RA3 `Vb ~T0 @X0 0 e@43 ]
-"2248
-[v _RA2 `Vb ~T0 @X0 0 e@42 ]
-"2252
-[v _RA4 `Vb ~T0 @X0 0 e@44 ]
 [p mainexit ]
+"2262
+[v _RB1 `Vb ~T0 @X0 0 e@49 ]
+"2264
+[v _RB2 `Vb ~T0 @X0 0 e@50 ]
 "2260
 [v _RB0 `Vb ~T0 @X0 0 e@48 ]
+"151 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic.h
+[v __delay `(v ~T0 @X0 0 ef1`ul ]
+[p i __delay ]
 [; ;pic16f88.h: 44: extern volatile unsigned char INDF @ 0x000;
 "46 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
 [; ;pic16f88.h: 46: asm("INDF equ 00h");
@@ -944,520 +937,85 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x PWRTE=OFF ]
 [p x IESO=OFF ]
 [p x FCMEN=OFF ]
-"42
+"33
 [v _init `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 42: void init(void){
+[; ;main.c: 33: void init(void){
 [e :U _init ]
 [f ]
-[; ;main.c: 44: OSCCON = 0b01100000;
-"44
+[; ;main.c: 35: OSCCON = 0b01100000;
+"35
 [e = _OSCCON -> -> 96 `i `uc ]
-[; ;main.c: 45: TRISA = 0x00;
-"45
+[; ;main.c: 36: TRISA = 0x00;
+"36
 [e = _TRISA -> -> 0 `i `uc ]
-[; ;main.c: 46: TRISB = 0x01;
-"46
-[e = _TRISB -> -> 1 `i `uc ]
-[; ;main.c: 47: ANSEL = 0x00;
-"47
+[; ;main.c: 37: TRISB = 0x00;
+"37
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;main.c: 38: ANSEL = 0x00;
+"38
 [e = _ANSEL -> -> 0 `i `uc ]
-[; ;main.c: 49: RA1 = 1;
-"49
-[e = _RA1 -> -> 1 `i `b ]
-[; ;main.c: 50: RA0 = 1;
-"50
-[e = _RA0 -> -> 1 `i `b ]
-[; ;main.c: 51: RA7 = 1;
-"51
-[e = _RA7 -> -> 1 `i `b ]
-[; ;main.c: 52: RA6 = 1;
-"52
-[e = _RA6 -> -> 1 `i `b ]
-[; ;main.c: 53: RA3 = 1;
-"53
-[e = _RA3 -> -> 1 `i `b ]
-[; ;main.c: 54: RA2 = 1;
-"54
-[e = _RA2 -> -> 1 `i `b ]
-[; ;main.c: 55: RA4 = 1;
-"55
-[e = _RA4 -> -> 1 `i `b ]
-[; ;main.c: 56: }
-"56
+[; ;main.c: 40: }
+"40
 [e :UE 89 ]
 }
-"58
-[v _zero `(v ~T0 @X0 1 ef ]
-{
-[; ;main.c: 58: void zero(void){
-[e :U _zero ]
-[f ]
-[; ;main.c: 59: RA1 = 0;
-"59
-[e = _RA1 -> -> 0 `i `b ]
-[; ;main.c: 60: RA0 = 0;
-"60
-[e = _RA0 -> -> 0 `i `b ]
-[; ;main.c: 61: RA7 = 0;
-"61
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 62: RA6 = 0;
-"62
-[e = _RA6 -> -> 0 `i `b ]
-[; ;main.c: 63: RA3 = 0;
-"63
-[e = _RA3 -> -> 0 `i `b ]
-[; ;main.c: 64: RA2 = 0;
-"64
-[e = _RA2 -> -> 0 `i `b ]
-[; ;main.c: 65: RA4 = 1;
-"65
-[e = _RA4 -> -> 1 `i `b ]
-[; ;main.c: 66: }
-"66
-[e :UE 90 ]
-}
-"67
-[v _one `(v ~T0 @X0 1 ef ]
-{
-[; ;main.c: 67: void one(void){
-[e :U _one ]
-[f ]
-[; ;main.c: 68: RA1 = 1;
-"68
-[e = _RA1 -> -> 1 `i `b ]
-[; ;main.c: 69: RA0 = 0;
-"69
-[e = _RA0 -> -> 0 `i `b ]
-[; ;main.c: 70: RA7 = 0;
-"70
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 71: RA6 = 1;
-"71
-[e = _RA6 -> -> 1 `i `b ]
-[; ;main.c: 72: RA3 = 1;
-"72
-[e = _RA3 -> -> 1 `i `b ]
-[; ;main.c: 73: RA2 = 1;
-"73
-[e = _RA2 -> -> 1 `i `b ]
-[; ;main.c: 74: RA4 = 1;
-"74
-[e = _RA4 -> -> 1 `i `b ]
-[; ;main.c: 75: }
-"75
-[e :UE 91 ]
-}
-"76
-[v _two `(v ~T0 @X0 1 ef ]
-{
-[; ;main.c: 76: void two(void){
-[e :U _two ]
-[f ]
-[; ;main.c: 77: RA1 = 0;
-"77
-[e = _RA1 -> -> 0 `i `b ]
-[; ;main.c: 78: RA0 = 0;
-"78
-[e = _RA0 -> -> 0 `i `b ]
-[; ;main.c: 79: RA7 = 1;
-"79
-[e = _RA7 -> -> 1 `i `b ]
-[; ;main.c: 80: RA4 = 0;
-"80
-[e = _RA4 -> -> 0 `i `b ]
-[; ;main.c: 81: RA3 = 0;
-"81
-[e = _RA3 -> -> 0 `i `b ]
-[; ;main.c: 82: RA6 = 0;
-"82
-[e = _RA6 -> -> 0 `i `b ]
-[; ;main.c: 83: RA2 = 1;
-"83
-[e = _RA2 -> -> 1 `i `b ]
-[; ;main.c: 84: }
-"84
-[e :UE 92 ]
-}
-"85
-[v _three `(v ~T0 @X0 1 ef ]
-{
-[; ;main.c: 85: void three(void){
-[e :U _three ]
-[f ]
-[; ;main.c: 86: RA1 = 0;
-"86
-[e = _RA1 -> -> 0 `i `b ]
-[; ;main.c: 87: RA0 = 0;
-"87
-[e = _RA0 -> -> 0 `i `b ]
-[; ;main.c: 88: RA4 = 0;
-"88
-[e = _RA4 -> -> 0 `i `b ]
-[; ;main.c: 89: RA7 = 0;
-"89
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 90: RA6 = 0;
-"90
-[e = _RA6 -> -> 0 `i `b ]
-[; ;main.c: 91: RA3 = 1;
-"91
-[e = _RA3 -> -> 1 `i `b ]
-[; ;main.c: 92: RA2 = 1;
-"92
-[e = _RA2 -> -> 1 `i `b ]
-[; ;main.c: 93: }
-"93
-[e :UE 93 ]
-}
-"94
-[v _four `(v ~T0 @X0 1 ef ]
-{
-[; ;main.c: 94: void four(void){
-[e :U _four ]
-[f ]
-[; ;main.c: 95: RA2 = 0;
-"95
-[e = _RA2 -> -> 0 `i `b ]
-[; ;main.c: 96: RA0 = 0;
-"96
-[e = _RA0 -> -> 0 `i `b ]
-[; ;main.c: 97: RA4 = 0;
-"97
-[e = _RA4 -> -> 0 `i `b ]
-[; ;main.c: 98: RA7 = 0;
-"98
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 99: RA1 = 1;
-"99
-[e = _RA1 -> -> 1 `i `b ]
-[; ;main.c: 100: RA6 = 1;
-"100
-[e = _RA6 -> -> 1 `i `b ]
-[; ;main.c: 101: RA3 = 1;
-"101
-[e = _RA3 -> -> 1 `i `b ]
-[; ;main.c: 102: }
-"102
-[e :UE 94 ]
-}
-"103
-[v _five `(v ~T0 @X0 1 ef ]
-{
-[; ;main.c: 103: void five(void){
-[e :U _five ]
-[f ]
-[; ;main.c: 104: RA1 = 0;
-"104
-[e = _RA1 -> -> 0 `i `b ]
-[; ;main.c: 105: RA2 = 0;
-"105
-[e = _RA2 -> -> 0 `i `b ]
-[; ;main.c: 106: RA4 = 0;
-"106
-[e = _RA4 -> -> 0 `i `b ]
-[; ;main.c: 107: RA7 = 0;
-"107
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 108: RA6 = 0;
-"108
-[e = _RA6 -> -> 0 `i `b ]
-[; ;main.c: 109: RA0 = 1;
-"109
-[e = _RA0 -> -> 1 `i `b ]
-[; ;main.c: 110: RA3 = 1;
-"110
-[e = _RA3 -> -> 1 `i `b ]
-[; ;main.c: 111: }
-"111
-[e :UE 95 ]
-}
-"112
-[v _six `(v ~T0 @X0 1 ef ]
-{
-[; ;main.c: 112: void six(void){
-[e :U _six ]
-[f ]
-[; ;main.c: 113: RA1 = 0;
-"113
-[e = _RA1 -> -> 0 `i `b ]
-[; ;main.c: 114: RA2 = 0;
-"114
-[e = _RA2 -> -> 0 `i `b ]
-[; ;main.c: 115: RA4 = 0;
-"115
-[e = _RA4 -> -> 0 `i `b ]
-[; ;main.c: 116: RA7 = 0;
-"116
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 117: RA6 = 0;
-"117
-[e = _RA6 -> -> 0 `i `b ]
-[; ;main.c: 118: RA3 = 0;
-"118
-[e = _RA3 -> -> 0 `i `b ]
-[; ;main.c: 119: RA0 = 1;
-"119
-[e = _RA0 -> -> 1 `i `b ]
-[; ;main.c: 120: }
-"120
-[e :UE 96 ]
-}
-"121
-[v _seven `(v ~T0 @X0 1 ef ]
-{
-[; ;main.c: 121: void seven(void){
-[e :U _seven ]
-[f ]
-[; ;main.c: 122: RA1 = 0;
-"122
-[e = _RA1 -> -> 0 `i `b ]
-[; ;main.c: 123: RA0 = 0;
-"123
-[e = _RA0 -> -> 0 `i `b ]
-[; ;main.c: 124: RA7 = 0;
-"124
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 125: RA6 = 1;
-"125
-[e = _RA6 -> -> 1 `i `b ]
-[; ;main.c: 126: RA3 = 1;
-"126
-[e = _RA3 -> -> 1 `i `b ]
-[; ;main.c: 127: RA2 = 1;
-"127
-[e = _RA2 -> -> 1 `i `b ]
-[; ;main.c: 128: RA4 = 1;
-"128
-[e = _RA4 -> -> 1 `i `b ]
-[; ;main.c: 129: }
-"129
-[e :UE 97 ]
-}
-"131
-[v _eight `(v ~T0 @X0 1 ef ]
-{
-[; ;main.c: 131: void eight(void){
-[e :U _eight ]
-[f ]
-[; ;main.c: 132: RA1 = 0;
-"132
-[e = _RA1 -> -> 0 `i `b ]
-[; ;main.c: 133: RA0 = 0;
-"133
-[e = _RA0 -> -> 0 `i `b ]
-[; ;main.c: 134: RA7 = 0;
-"134
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 135: RA6 = 0;
-"135
-[e = _RA6 -> -> 0 `i `b ]
-[; ;main.c: 136: RA3 = 0;
-"136
-[e = _RA3 -> -> 0 `i `b ]
-[; ;main.c: 137: RA2 = 0;
-"137
-[e = _RA2 -> -> 0 `i `b ]
-[; ;main.c: 138: RA4 = 0;
-"138
-[e = _RA4 -> -> 0 `i `b ]
-[; ;main.c: 139: }
-"139
-[e :UE 98 ]
-}
-"141
-[v _nine `(v ~T0 @X0 1 ef ]
-{
-[; ;main.c: 141: void nine(void){
-[e :U _nine ]
-[f ]
-[; ;main.c: 142: RA1 = 0;
-"142
-[e = _RA1 -> -> 0 `i `b ]
-[; ;main.c: 143: RA0 = 0;
-"143
-[e = _RA0 -> -> 0 `i `b ]
-[; ;main.c: 144: RA7 = 0;
-"144
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 145: RA6 = 0;
-"145
-[e = _RA6 -> -> 0 `i `b ]
-[; ;main.c: 146: RA3 = 1;
-"146
-[e = _RA3 -> -> 1 `i `b ]
-[; ;main.c: 147: RA2 = 0;
-"147
-[e = _RA2 -> -> 0 `i `b ]
-[; ;main.c: 148: RA4 = 0;
-"148
-[e = _RA4 -> -> 0 `i `b ]
-[; ;main.c: 149: }
-"149
-[e :UE 99 ]
-}
-"151
+"42
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 151: int main() {
+[; ;main.c: 42: int main() {
 [e :U _main ]
 [f ]
-[; ;main.c: 152: init();
-"152
+[; ;main.c: 43: init();
+"43
 [e ( _init ..  ]
-"153
-[v _buttonFlag `i ~T0 @X0 1 a ]
-[; ;main.c: 153: int buttonFlag = 0;
-[e = _buttonFlag -> 0 `i ]
-"154
-[v _zero `i ~T0 @X0 1 a ]
-[; ;main.c: 154: int zero = 1;
-[e = _zero -> 1 `i ]
-"155
-[v _one `i ~T0 @X0 1 a ]
-"156
-[v _two `i ~T0 @X0 1 a ]
-"157
-[v _three `i ~T0 @X0 1 a ]
-"158
-[v _four `i ~T0 @X0 1 a ]
-[; ;main.c: 155: int one;
-[; ;main.c: 156: int two;
-[; ;main.c: 157: int three;
-[; ;main.c: 158: int four;
-[; ;main.c: 160: while(1){
-"160
-[e :U 102 ]
+[; ;main.c: 45: while(1){
+"45
+[e :U 92 ]
 {
-[; ;main.c: 162: if(RB0 == 0) {
-"162
-[e $ ! == -> _RB0 `i -> 0 `i 104  ]
-{
-[; ;main.c: 163: buttonFlag = 1;
-"163
-[e = _buttonFlag -> 1 `i ]
-"164
+[; ;main.c: 46: RB1 = 0;
+"46
+[e = _RB1 -> -> 0 `i `b ]
+[; ;main.c: 47: RB2 = 1;
+"47
+[e = _RB2 -> -> 1 `i `b ]
+[; ;main.c: 48: RB0 = 0;
+"48
+[e = _RB0 -> -> 0 `i `b ]
+[; ;main.c: 49: _delay((unsigned long)((1000)*(8000000/4000.0)));
+"49
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 50: RB1 = 0;
+"50
+[e = _RB1 -> -> 0 `i `b ]
+[; ;main.c: 51: RB2 = 0;
+"51
+[e = _RB2 -> -> 0 `i `b ]
+[; ;main.c: 52: RB0 = 1;
+"52
+[e = _RB0 -> -> 1 `i `b ]
+[; ;main.c: 53: _delay((unsigned long)((1000)*(8000000/4000.0)));
+"53
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 54: RB1 = 1;
+"54
+[e = _RB1 -> -> 1 `i `b ]
+[; ;main.c: 55: RB2 = 0;
+"55
+[e = _RB2 -> -> 0 `i `b ]
+[; ;main.c: 56: RB0 = 0;
+"56
+[e = _RB0 -> -> 0 `i `b ]
+[; ;main.c: 57: _delay((unsigned long)((1000)*(8000000/4000.0)));
+"57
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"58
 }
-[e :U 104 ]
-[; ;main.c: 164: }
-[; ;main.c: 166: if(zero == 1 && buttonFlag == 1) {
-"166
-[e $ ! && == _zero -> 1 `i == _buttonFlag -> 1 `i 105  ]
-{
-[; ;main.c: 168: RA1 = 0;
-"168
-[e = _RA1 -> -> 0 `i `b ]
-[; ;main.c: 169: buttonFlag = 0;
-"169
-[e = _buttonFlag -> 0 `i ]
-[; ;main.c: 170: one = 1;
-"170
-[e = _one -> 1 `i ]
-[; ;main.c: 171: zero = 0;
-"171
-[e = _zero -> 0 `i ]
-"172
-}
-[e :U 105 ]
-[; ;main.c: 172: }
-[; ;main.c: 173: if(one == 1 && buttonFlag == 1) {
-"173
-[e $ ! && == _one -> 1 `i == _buttonFlag -> 1 `i 106  ]
-{
-[; ;main.c: 175: RA0=0;
-"175
-[e = _RA0 -> -> 0 `i `b ]
-[; ;main.c: 176: buttonFlag = 0;
-"176
-[e = _buttonFlag -> 0 `i ]
-[; ;main.c: 177: two = 1;
-"177
-[e = _two -> 1 `i ]
-[; ;main.c: 178: one = 0;
-"178
-[e = _one -> 0 `i ]
-"179
-}
-[e :U 106 ]
-[; ;main.c: 179: }
-[; ;main.c: 180: if(two == 1 && buttonFlag == 1) {
-"180
-[e $ ! && == _two -> 1 `i == _buttonFlag -> 1 `i 107  ]
-{
-[; ;main.c: 182: RA7=0;
-"182
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 183: buttonFlag = 0;
-"183
-[e = _buttonFlag -> 0 `i ]
-[; ;main.c: 184: three = 1;
-"184
-[e = _three -> 1 `i ]
-[; ;main.c: 185: two = 0;
-"185
-[e = _two -> 0 `i ]
-"186
-}
-[e :U 107 ]
-[; ;main.c: 186: }
-[; ;main.c: 187: if(three == 1 && buttonFlag == 1) {
-"187
-[e $ ! && == _three -> 1 `i == _buttonFlag -> 1 `i 108  ]
-{
-[; ;main.c: 189: RA6=0;
-"189
-[e = _RA6 -> -> 0 `i `b ]
-[; ;main.c: 190: buttonFlag = 0;
-"190
-[e = _buttonFlag -> 0 `i ]
-[; ;main.c: 191: four = 1;
-"191
-[e = _four -> 1 `i ]
-[; ;main.c: 192: three =0;
-"192
-[e = _three -> 0 `i ]
-"193
-}
-[e :U 108 ]
-[; ;main.c: 193: }
-[; ;main.c: 194: if(four == 1 && buttonFlag == 1) {
-"194
-[e $ ! && == _four -> 1 `i == _buttonFlag -> 1 `i 109  ]
-{
-[; ;main.c: 196: RA1=1;
-"196
-[e = _RA1 -> -> 1 `i `b ]
-[; ;main.c: 197: RA0=1;
-"197
-[e = _RA0 -> -> 1 `i `b ]
-[; ;main.c: 198: RA7=1;
-"198
-[e = _RA7 -> -> 1 `i `b ]
-[; ;main.c: 199: RA6=1;
-"199
-[e = _RA6 -> -> 1 `i `b ]
-[; ;main.c: 200: buttonFlag = 0;
-"200
-[e = _buttonFlag -> 0 `i ]
-[; ;main.c: 201: zero = 1;
-"201
-[e = _zero -> 1 `i ]
-[; ;main.c: 202: four = 0;
-"202
-[e = _four -> 0 `i ]
-"203
-}
-[e :U 109 ]
-"226
-}
-[e :U 101 ]
-"160
-[e $U 102  ]
-[e :U 103 ]
-[; ;main.c: 203: }
-[; ;main.c: 226: }
-[; ;main.c: 227: }
-"227
-[e :UE 100 ]
+[e :U 91 ]
+"45
+[e $U 92  ]
+[e :U 93 ]
+[; ;main.c: 58: }
+[; ;main.c: 59: }
+"59
+[e :UE 90 ]
 }

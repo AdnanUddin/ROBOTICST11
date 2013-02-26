@@ -175,16 +175,24 @@ void nineDisplay(void){
 
 void countUp(void) {
     count = count + 1;
+    if (count > 9)
+    {
+        count = 0;
+    }
 }
 
 void countDown(void) {
     count = count - 1;
+    if (count < 0)
+    {
+        count = 9;
+    }
 }
 
 int main(void) {
    init(); // call the function above
    
-   // Boolean
+   // Set/Reset Variables
    int upButtonFlag = FALSE;
    int downButtonFlag = FALSE;
 
