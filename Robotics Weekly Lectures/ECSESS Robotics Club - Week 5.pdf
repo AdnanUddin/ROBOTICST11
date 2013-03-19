@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--
+Copyright 2012 Mozilla Foundation
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<html dir="ltr" mozdisallowselectionprint=""><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>ECSESS Robotics Club - file_download.php</title>
+
+<!-- This snippet is used in firefox extension, see Makefile -->
+<!-- base href="resource://pdf.js/web/" -->
+<script type="text/javascript" src="ECSESS%20Robotics%20Club%20-%20Week%205_files/l10n.js"></script>
+<script type="text/javascript" src="ECSESS%20Robotics%20Club%20-%20Week%205_files/pdf.js"></script>
+
+
+    <link rel="stylesheet" href="ECSESS%20Robotics%20Club%20-%20Week%205_files/viewer.css">
+
+
+
+
+
+
+    <script type="text/javascript" src="ECSESS%20Robotics%20Club%20-%20Week%205_files/debugger.js"></script>
+    <script type="text/javascript" src="ECSESS%20Robotics%20Club%20-%20Week%205_files/viewer.js"></script>
+  <style id="PDFJS_FONT_STYLE_TAG"></style></head>
+
+  <body>
+    <div id="outerContainer">
+
+      <div id="sidebarContainer">
+        <div id="toolbarSidebar">
+          <div class="splitToolbarButton toggled">
+            <button id="viewThumbnail" class="toolbarButton group toggled" title="Show Thumbnails" tabindex="1" data-l10n-id="thumbs">
+               <span data-l10n-id="thumbs_label">Thumbnails</span>
+            </button>
+            <button id="viewOutline" class="toolbarButton group" title="Show Document Outline" tabindex="2" data-l10n-id="outline">
+               <span data-l10n-id="outline_label">Document Outline</span>
+            </button>
+          </div>
+        </div>
+        <div id="sidebarContent">
+          <div id="thumbnailView"><a title="Page 1" href="https://attachment.fbsbx.com/file_download.php?id=168002470019056&amp;eid=ASvKTF1HNnVZ8qkD1s6bGqotsDnwESX-WJ751__23w-m59JQOvyvDYRIgy7rHyeYiao&amp;inline=1&amp;ext=1363657326&amp;hash=ASvSi1-3-FU9Y9M3#page=1"><div data-loaded="true" class="thumbnail" id="thumbnailContainer1"><div style="width: 98px; height: 55.125px;" class="thumbnailSelectionRing"><canvas aria-label="Thumbnail of Page 1" class="thumbnailImage" height="55" width="98" moz-opaque="" id="thumbnail1"></canvas></div></div></a><a title="Page 2" href="https://attachment.fbsbx.com/file_download.php?id=168002470019056&amp;eid=ASvKTF1HNnVZ8qkD1s6bGqotsDnwESX-WJ751__23w-m59JQOvyvDYRIgy7rHyeYiao&amp;inline=1&amp;ext=1363657326&amp;hash=ASvSi1-3-FU9Y9M3#page=2"><div data-loaded="true" class="thumbnail" id="thumbnailContainer2"><div style="width: 98px; height: 55.125px;" class="thumbnailSelectionRing"><canvas aria-label="Thumbnail of Page 2" class="thumbnailImage" height="55" width="98" moz-opaque="" id="thumbnail2"></canvas></div></div></a><a title="Page 3" href="https://attachment.fbsbx.com/file_download.php?id=168002470019056&amp;eid=ASvKTF1HNnVZ8qkD1s6bGqotsDnwESX-WJ751__23w-m59JQOvyvDYRIgy7rHyeYiao&amp;inline=1&amp;ext=1363657326&amp;hash=ASvSi1-3-FU9Y9M3#page=3"><div class="thumbnail" id="thumbnailContainer3"><div style="width: 98px; height: 55.125px;" class="thumbnailSelectionRing"></div></div></a><a title="Page 4" href="https://attachment.fbsbx.com/file_download.php?id=168002470019056&amp;eid=ASvKTF1HNnVZ8qkD1s6bGqotsDnwESX-WJ751__23w-m59JQOvyvDYRIgy7rHyeYiao&amp;inline=1&amp;ext=1363657326&amp;hash=ASvSi1-3-FU9Y9M3#page=4"><div class="thumbnail" id="thumbnailContainer4"><div style="width: 98px; height: 55.125px;" class="thumbnailSelectionRing"></div></div></a></div>
+          <div id="outlineView" class="hidden"><div class="noOutline">No Outline Available</div></div>
+        </div>
+      </div>  <!-- sidebarContainer -->
+
+      <div id="mainContainer">
+        <div class="findbar hidden doorHanger" id="findbar">
+          <label for="findInput" class="toolbarLabel" data-l10n-id="find_label">Find:</label>
+          <input id="findInput" class="toolbarField" tabindex="20">
+          <div class="splitToolbarButton">
+            <button class="toolbarButton findPrevious" title="Find the previous occurrence of the phrase" id="findPrevious" tabindex="21" data-l10n-id="find_previous">
+              <span data-l10n-id="find_previous_label">Previous</span>
+            </button>
+            <div class="splitToolbarButtonSeparator"></div>
+            <button class="toolbarButton findNext" title="Find the next occurrence of the phrase" id="findNext" tabindex="22" data-l10n-id="find_next">
+              <span data-l10n-id="find_next_label">Next</span>
+            </button>
+          </div>
+          <input id="findHighlightAll" class="toolbarField" type="checkbox">
+          <label for="findHighlightAll" class="toolbarLabel" tabindex="23" data-l10n-id="find_highlight">Highlight all</label>
+          <input id="findMatchCase" class="toolbarField" type="checkbox">
+          <label for="findMatchCase" class="toolbarLabel" tabindex="24" data-l10n-id="find_match_case_label">Match case</label>
+          <span id="findMsg" class="toolbarLabel"></span>
+        </div>
+        <div class="toolbar">
+          <div id="toolbarContainer">
+            <div id="toolbarViewer">
+              <div id="toolbarViewerLeft">
+                <button id="sidebarToggle" class="toolbarButton" title="Toggle Slider" tabindex="3" data-l10n-id="toggle_slider">
+                  <span data-l10n-id="toggle_slider_label">Toggle Slider</span>
+                </button>
+                <div class="toolbarButtonSpacer"></div>
+                <button id="viewFind" class="toolbarButton group hidden" title="Find in Document" tabindex="4" data-l10n-id="findbar">
+                   <span data-l10n-id="findbar_label">Find</span>
+                </button>
+                <div class="splitToolbarButton">
+                  <button disabled="disabled" class="toolbarButton pageUp" title="Previous Page" id="previous" tabindex="5" data-l10n-id="previous">
+                    <span data-l10n-id="previous_label">Previous</span>
+                  </button>
+                  <div class="splitToolbarButtonSeparator"></div>
+                  <button class="toolbarButton pageDown" title="Next Page" id="next" tabindex="6" data-l10n-id="next">
+                    <span data-l10n-id="next_label">Next</span>
+                  </button>
+                </div>
+                <label id="pageNumberLabel" class="toolbarLabel" for="pageNumber" data-l10n-id="page_label">Page:</label>
+                <input max="4" id="pageNumber" class="toolbarField pageNumber" value="1" size="4" min="1" tabindex="7" type="number">
+                
+                <span id="numPages" class="toolbarLabel">of 4</span>
+              </div>
+              <div id="toolbarViewerRight">
+                <input id="fileInput" class="fileInput" oncontextmenu="return false;" style="visibility: hidden; position: fixed; right: 0; top: 0" type="file">
+
+
+                <button id="fullscreen" class="toolbarButton fullscreen" title="Switch to Presentation Mode" tabindex="11" data-l10n-id="presentation_mode">
+                  <span data-l10n-id="presentation_mode_label">Presentation Mode</span>
+                </button>
+
+                <button id="openFile" class="toolbarButton openFile" title="Open File" tabindex="12" data-l10n-id="open_file" hidden="true">
+                   <span data-l10n-id="open_file_label">Open</span>
+                </button>
+
+                <button id="print" class="toolbarButton print" title="Print" tabindex="13" data-l10n-id="print">
+                  <span data-l10n-id="print_label">Print</span>
+                </button>
+
+                <button id="download" class="toolbarButton download" title="Download" tabindex="14" data-l10n-id="download">
+                  <span data-l10n-id="download_label">Download</span>
+                </button>
+                <!-- <div class="toolbarButtonSpacer"></div> -->
+                <a href="https://attachment.fbsbx.com/file_download.php?id=168002470019056&amp;eid=ASvKTF1HNnVZ8qkD1s6bGqotsDnwESX-WJ751__23w-m59JQOvyvDYRIgy7rHyeYiao&amp;inline=1&amp;ext=1363657326&amp;hash=ASvSi1-3-FU9Y9M3#page=1&amp;zoom=auto,0,540" id="viewBookmark" class="toolbarButton bookmark" title="Current view (copy or open in new window)" tabindex="15" data-l10n-id="bookmark"><span data-l10n-id="bookmark_label">Current View</span></a>
+              </div>
+              <div class="outerCenter">
+                <div class="innerCenter" id="toolbarViewerMiddle">
+                  <div class="splitToolbarButton">
+                    <button class="toolbarButton zoomOut" title="Zoom Out" tabindex="8" data-l10n-id="zoom_out">
+                      <span data-l10n-id="zoom_out_label">Zoom Out</span>
+                    </button>
+                    <div class="splitToolbarButtonSeparator"></div>
+                    <button class="toolbarButton zoomIn" title="Zoom In" tabindex="9" data-l10n-id="zoom_in">
+                      <span data-l10n-id="zoom_in_label">Zoom In</span>
+                     </button>
+                  </div>
+                  <span id="scaleSelectContainer" class="dropdownToolbarButton">
+                     <select id="scaleSelect" title="Zoom" oncontextmenu="return false;" tabindex="10" data-l10n-id="zoom">
+                      <option id="pageAutoOption" value="auto" selected="selected" data-l10n-id="page_scale_auto">Automatic Zoom</option>
+                      <option id="pageActualOption" value="page-actual" data-l10n-id="page_scale_actual">Actual Size</option>
+                      <option id="pageFitOption" value="page-fit" data-l10n-id="page_scale_fit">Page Fit</option>
+                      <option id="pageWidthOption" value="page-width" data-l10n-id="page_scale_width">Page Width</option>
+                      <option id="customScaleOption" value="custom"></option>
+                      <option value="0.5">50%</option>
+                      <option value="0.75">75%</option>
+                      <option value="1">100%</option>
+                      <option value="1.25">125%</option>
+                      <option value="1.5">150%</option>
+                      <option value="2">200%</option>
+                    </select>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <menu type="context" id="viewerContextMenu">
+          <menuitem label="Go to First Page" id="first_page" data-l10n-id="first_page"></menuitem>
+          <menuitem label="Go to Last Page" id="last_page" data-l10n-id="last_page"></menuitem>
+          <menuitem label="Rotate Counterclockwise" id="page_rotate_ccw" data-l10n-id="page_rotate_ccw"></menuitem>
+          <menuitem label="Rotate Clockwise" id="page_rotate_cw" data-l10n-id="page_rotate_cw"></menuitem>
+        </menu>
+
+        <div id="viewerContainer">
+          <div id="viewer" contextmenu="viewerContextMenu"><a name="1"></a><div data-loaded="true" style="width: 1280px; height: 720px;" class="page" id="pageContainer1"><canvas height="720" width="1280" moz-opaque="" id="page1"></canvas><div class="textLayer"><div dir="ltr" style="font-size: 72.032px; font-family: sans-serif; left: 282.587px; top: 332.061px; transform: scale(0.895575, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="681.2786763036862">ECSESS Robotics Club</div><div dir="ltr" style="font-size: 72.032px; font-family: sans-serif; left: 964.133px; top: 332.061px; transform: scale(1.08318, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="21.68163264616299"> </div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 624.547px; top: 426.653px; transform: scale(0.960237, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="64.89600193405153">Week </div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 689.667px; top: 426.653px; transform: scale(0.99557, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="19.928000593900684">5 </div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 709.533px; top: 426.653px; transform: scale(0.659775, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_3" data-canvas-width="8.808000262498856">–</div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 718.333px; top: 426.653px; transform: scale(1.0836, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="7.224000215291977"> </div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 725.533px; top: 426.653px; transform: scale(0.969721, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="245.8080073256493">Universal Synchronous </div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 971.493px; top: 426.653px; transform: scale(1.0836, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="7.224000215291977"> </div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 588.707px; top: 465.853px; transform: scale(0.9877, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="382.53601140046123">Asynchronous Receiver Transmitter </div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 971.493px; top: 465.853px; transform: scale(1.0836, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="7.224000215291977"> </div><div dir="ltr" style="font-size: 24.032px; font-family: sans-serif; left: 878.493px; top: 505.061px; transform: scale(0.882838, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="85.65005055257035">(USART)</div><div dir="ltr" style="font-size: 24.032px; font-family: sans-serif; left: 964.133px; top: 505.061px; transform: scale(1.08234, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="7.233632215579033"> </div></div></div><a name="2"></a><div data-loaded="true" style="width: 1280px; height: 720px;" class="page" id="pageContainer2"><canvas height="720" width="1280" moz-opaque="" id="page2"></canvas><div class="textLayer"><div dir="ltr" style="font-size: 48.032px; font-family: sans-serif; left: 80.736px; top: 67.3547px; transform: scale(1.03323, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="463.5088138136386">Things to look out for</div><div dir="ltr" style="font-size: 48.032px; font-family: sans-serif; left: 544.32px; top: 67.3547px; transform: scale(1.08297, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="14.457632430871012"> </div><div dir="ltr" style="font-size: 19.2px; font-family: sans-serif; left: 80.736px; top: 235.84px; transform: scale(1.29822, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p1_2" data-canvas-width="16.876800502967836"></div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 116.736px; top: 231.04px; transform: scale(1.02542, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_3" data-canvas-width="584.2320174114702">Don’t put other connections on the programming lines</div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 701.28px; top: 231.04px; transform: scale(1.0836, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="7.224000215291977"> </div><div dir="ltr" style="font-size: 17.12px; font-family: sans-serif; left: 128.736px; top: 277.44px; transform: scale(1.15758, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p1_2" data-canvas-width="15.048480448479653"></div><div dir="ltr" style="font-size: 21.28px; font-family: sans-serif; left: 158.813px; top: 273.28px; transform: scale(0.893009, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="139.08608414508822">VPP, PGD, PGC</div><div dir="ltr" style="font-size: 21.28px; font-family: sans-serif; left: 298.013px; top: 273.28px; transform: scale(1.08258, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="6.40528019089222"> </div><div dir="ltr" style="font-size: 19.2px; font-family: sans-serif; left: 80.736px; top: 316.827px; transform: scale(1.29822, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p1_2" data-canvas-width="16.876800502967836"></div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 116.736px; top: 312.027px; transform: scale(0.990992, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="337.1520100479126">Use 5 Volts when programming </div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 454.053px; top: 312.027px; transform: scale(1.0836, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="7.224000215291977"> </div><div dir="ltr" style="font-size: 19.2px; font-family: sans-serif; left: 80.736px; top: 359.067px; transform: scale(1.29822, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p1_2" data-canvas-width="16.876800502967836"></div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 116.736px; top: 354.267px; transform: scale(0.981147, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="539.3040160725116">Change resistor values for LEDs when using 5 volts</div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 656.32px; top: 354.267px; transform: scale(1.0836, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="7.224000215291977"> </div><div dir="ltr" style="font-size: 19.2px; font-family: sans-serif; left: 80.736px; top: 401.147px; transform: scale(1.29822, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p1_2" data-canvas-width="16.876800502967836"></div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 116.736px; top: 396.347px; transform: scale(1.02141, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="449.71201340246193">Do not use the power supply to test the H</div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 566.72px; top: 396.347px; transform: scale(1.101, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="8.808000262498856">-</div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 575.52px; top: 396.347px; transform: scale(1.00909, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="329.8560098304749">bridge with LEDs at too high a </div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 116.736px; top: 425.147px; transform: scale(1.01674, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="78.69600234532356">voltage</div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 195.453px; top: 425.147px; transform: scale(1.0836, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="7.224000215291977"> </div><div dir="ltr" style="font-size: 19.2px; font-family: sans-serif; left: 80.736px; top: 472.067px; transform: scale(1.29822, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p1_2" data-canvas-width="16.876800502967836"></div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 116.736px; top: 467.267px; transform: scale(1.01784, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="832.4400248086455">Be sure the programming wire is plugged in the right direction of the PICKIT2</div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 949.627px; top: 467.267px; transform: scale(1.0836, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="7.224000215291977"> </div><div dir="ltr" style="font-size: 24px; font-family: sans-serif; left: 116.736px; top: 509.507px; transform: scale(1.0836, 1); transform-origin: 0% 0% 0px;" data-font-name="g_font_p0_1" data-canvas-width="7.224000215291977"> </div></div></div><a name="3"></a><div style="width: 1280px; height: 720px;" class="page" id="pageContainer3"><div class="loadingIcon"></div></div><a name="4"></a><div style="width: 1280px; height: 720px;" class="page" id="pageContainer4"><div class="loadingIcon"></div></div></div>
+        </div>
+
+        <div id="loadingBox" hidden="true">
+          <div id="loading"></div>
+          <div id="loadingBar"><div style="height: 100%;" class="progress"></div></div>
+        </div>
+
+        <div id="errorWrapper" hidden="true">
+          <div id="errorMessageLeft">
+            <span id="errorMessage"></span>
+            <button id="errorShowMore" onclick="" oncontextmenu="return false;" data-l10n-id="error_more_info">More Information</button>
+            <button id="errorShowLess" onclick="" oncontextmenu="return false;" data-l10n-id="error_less_info" hidden="true">Less Information</button>
+          </div>
+          <div id="errorMessageRight">
+            <button id="errorClose" oncontextmenu="return false;" data-l10n-id="error_close">Close</button>
+          </div>
+          <div class="clearBoth"></div>
+          <textarea id="errorMoreInfo" readonly="readonly" hidden="true"></textarea>
+        </div>
+      </div> <!-- mainContainer -->
+
+    </div> <!-- outerContainer -->
+    <div id="printContainer"></div>
+  
+
+
+</body></html>
