@@ -118,13 +118,8 @@
       </HI-TECH-COMP>
       <HI-TECH-LINK>
       </HI-TECH-LINK>
-      <PICkit2PlatformTool>
-        <property key="pk2settings.3state" value="false"/>
-        <property key="pk2settings.preserveee" value="false"/>
-        <property key="pk2settings.setvddvoltage" value="5.0"/>
-        <property key="pk2settings.userpgmexec" value="true"/>
-        <property key="pk2settings.usetargetpower" value="false"/>
-      </PICkit2PlatformTool>
+      <Simulator>
+      </Simulator>
       <XC8-config-global>
       </XC8-config-global>
     </conf>

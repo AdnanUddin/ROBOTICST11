@@ -163,7 +163,7 @@ text149 DC6 DD9 CODE DC6 0
 cinit DC0 DC5 CODE DC0 0
 %locals
 dist/default/production\7_Segment_Display.X.production.obj
-C:\Users\c\AppData\Local\Temp\suk.
+C:\Users\c\AppData\Local\Temp\s6os.
 226 6E0 0 CODE 0
 227 6E1 0 CODE 0
 main.c

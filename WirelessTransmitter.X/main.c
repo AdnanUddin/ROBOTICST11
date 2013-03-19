@@ -29,10 +29,13 @@
 #define ON 1 //Define on State for LEDS
 #define OFF 0 //Define off state for LEDS
 
+#define LOW 0
+#define HIGH 1
+
 void init(void){
 
     OSCCON = 0b01100000;	//set frequency to 4MHz
-    TRISA = 0x00;               // set all pins in PORTA as outputs
+    TRISA = 0x0F;               //
     TRISB = 0b000000100;         // set RB2 as input
     ANSEL = 0x00;               // ignore this
 
@@ -44,12 +47,21 @@ int main(void) {
     init(); //Intialize the setups
 
     while(1){
-        putch('1');
-        __delay_ms(500);
-        putch('2');
-        __delay_ms(500);
-        putch('3');
-        __delay_ms(500);
+        if(RA0 == LOW) {
+            putch(0b01011011);
+            putch(0b01100001);
+            putch(0b01100001);
+        }
+        else if(RA1 == LOW) {
+            putch(0b01011011);
+            putch(0b01100010);
+            putch(0b01100010);
+        }
+        else {
+            putch(0b01011011);
+            putch(0b01100000);
+            putch(0b01100000);
+        }
     }
 }
 

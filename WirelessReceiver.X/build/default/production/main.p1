@@ -13,20 +13,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "33 usart.h
 [v _init_comms `(v ~T0 @X0 0 ef ]
-"2262 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
-[v _RB1 `Vb ~T0 @X0 0 e@49 ]
-"2260
-[v _RB0 `Vb ~T0 @X0 0 e@48 ]
-"2250
-[v _RA3 `Vb ~T0 @X0 0 e@43 ]
+"2246 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
+[v _RA1 `Vb ~T0 @X0 0 e@41 ]
+"2244
+[v _RA0 `Vb ~T0 @X0 0 e@40 ]
 "2258
 [v _RA7 `Vb ~T0 @X0 0 e@47 ]
 "2256
 [v _RA6 `Vb ~T0 @X0 0 e@46 ]
-"2268
-[v _RB4 `Vb ~T0 @X0 0 e@52 ]
-"2266
-[v _RB3 `Vb ~T0 @X0 0 e@51 ]
+"2250
+[v _RA3 `Vb ~T0 @X0 0 e@43 ]
+"2248
+[v _RA2 `Vb ~T0 @X0 0 e@42 ]
+"2252
+[v _RA4 `Vb ~T0 @X0 0 e@44 ]
 [p mainexit ]
 "23 C:\Program Files (x86)\Microchip\xc8\v1.12\include\conio.h
 [v _getche `(uc ~T0 @X0 0 ef ]
@@ -1070,177 +1070,302 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 94 ]
 }
 "55
-[v _allOff `(i ~T0 @X0 1 ef ]
+[v _barDisplay `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 55: allOff(void){
-[e :U _allOff ]
+[; ;main.c: 55: barDisplay(void){
+[e :U _barDisplay ]
 [f ]
-[; ;main.c: 56: RB1 = 0;
+[; ;main.c: 56: RA1 = 1;
 "56
-[e = _RB1 -> -> 0 `i `b ]
-[; ;main.c: 57: RB0 = 0;
+[e = _RA1 -> -> 1 `i `b ]
+[; ;main.c: 57: RA0 = 1;
 "57
-[e = _RB0 -> -> 0 `i `b ]
-[; ;main.c: 58: RA3 = 0;
+[e = _RA0 -> -> 1 `i `b ]
+[; ;main.c: 58: RA7 = 1;
 "58
-[e = _RA3 -> -> 0 `i `b ]
-[; ;main.c: 59: RA7 = 0;
+[e = _RA7 -> -> 1 `i `b ]
+[; ;main.c: 59: RA6 = 1;
 "59
-[e = _RA7 -> -> 0 `i `b ]
-[; ;main.c: 60: RA6 = 0;
+[e = _RA6 -> -> 1 `i `b ]
+[; ;main.c: 60: RA3 = 1;
 "60
-[e = _RA6 -> -> 0 `i `b ]
-[; ;main.c: 61: RB4 = 0;
+[e = _RA3 -> -> 1 `i `b ]
+[; ;main.c: 61: RA2 = 1;
 "61
-[e = _RB4 -> -> 0 `i `b ]
-[; ;main.c: 62: RB3 = 0;
+[e = _RA2 -> -> 1 `i `b ]
+[; ;main.c: 62: RA4 = 0;
 "62
-[e = _RB3 -> -> 0 `i `b ]
+[e = _RA4 -> -> 0 `i `b ]
 [; ;main.c: 63: }
 "63
 [e :UE 95 ]
 }
-"64
-[v _drawOne `(i ~T0 @X0 1 ef ]
-{
-[; ;main.c: 64: drawOne(void){
-[e :U _drawOne ]
-[f ]
-[; ;main.c: 65: allOff();
-"65
-[e ( _allOff ..  ]
-[; ;main.c: 66: RB0 = 1;
 "66
-[e = _RB0 -> -> 1 `i `b ]
-[; ;main.c: 67: RA3 = 1;
+[v _oneDisplay `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 66: void oneDisplay(void){
+[e :U _oneDisplay ]
+[f ]
+[; ;main.c: 67: RA1 = 1;
 "67
-[e = _RA3 -> -> 1 `i `b ]
-[; ;main.c: 68: }
+[e = _RA1 -> -> 1 `i `b ]
+[; ;main.c: 68: RA0 = 0;
 "68
+[e = _RA0 -> -> 0 `i `b ]
+[; ;main.c: 69: RA7 = 0;
+"69
+[e = _RA7 -> -> 0 `i `b ]
+[; ;main.c: 70: RA6 = 1;
+"70
+[e = _RA6 -> -> 1 `i `b ]
+[; ;main.c: 71: RA3 = 1;
+"71
+[e = _RA3 -> -> 1 `i `b ]
+[; ;main.c: 72: RA2 = 1;
+"72
+[e = _RA2 -> -> 1 `i `b ]
+[; ;main.c: 73: RA4 = 1;
+"73
+[e = _RA4 -> -> 1 `i `b ]
+[; ;main.c: 74: }
+"74
 [e :UE 96 ]
 }
-"69
-[v _drawTwo `(i ~T0 @X0 1 ef ]
+"77
+[v _twoDisplay `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 69: drawTwo(void){
-[e :U _drawTwo ]
+[; ;main.c: 77: void twoDisplay(void){
+[e :U _twoDisplay ]
 [f ]
-[; ;main.c: 70: allOff();
-"70
-[e ( _allOff ..  ]
-[; ;main.c: 71: RB1 = 1;
-"71
-[e = _RB1 -> -> 1 `i `b ]
-[; ;main.c: 72: RB0 = 1;
-"72
-[e = _RB0 -> -> 1 `i `b ]
-[; ;main.c: 73: RA7 = 1;
-"73
+[; ;main.c: 78: RA1 = 0;
+"78
+[e = _RA1 -> -> 0 `i `b ]
+[; ;main.c: 79: RA0 = 0;
+"79
+[e = _RA0 -> -> 0 `i `b ]
+[; ;main.c: 80: RA7 = 1;
+"80
 [e = _RA7 -> -> 1 `i `b ]
-[; ;main.c: 74: RA6 = 1;
-"74
-[e = _RA6 -> -> 1 `i `b ]
-[; ;main.c: 75: RB3 = 1;
-"75
-[e = _RB3 -> -> 1 `i `b ]
-[; ;main.c: 76: }
-"76
+[; ;main.c: 81: RA6 = 0;
+"81
+[e = _RA6 -> -> 0 `i `b ]
+[; ;main.c: 82: RA3 = 0;
+"82
+[e = _RA3 -> -> 0 `i `b ]
+[; ;main.c: 83: RA2 = 1;
+"83
+[e = _RA2 -> -> 1 `i `b ]
+[; ;main.c: 84: RA4 = 0;
+"84
+[e = _RA4 -> -> 0 `i `b ]
+[; ;main.c: 85: }
+"85
 [e :UE 97 ]
 }
-"77
-[v _drawThree `(i ~T0 @X0 1 ef ]
+"88
+[v _threeDisplay `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 77: drawThree(void){
-[e :U _drawThree ]
+[; ;main.c: 88: void threeDisplay(void){
+[e :U _threeDisplay ]
 [f ]
-[; ;main.c: 78: allOff();
-"78
-[e ( _allOff ..  ]
-[; ;main.c: 79: RB1 = 1;
-"79
-[e = _RB1 -> -> 1 `i `b ]
-[; ;main.c: 80: RB0 = 1;
-"80
-[e = _RB0 -> -> 1 `i `b ]
-[; ;main.c: 81: RA3 = 1;
-"81
+[; ;main.c: 89: RA1 = 0;
+"89
+[e = _RA1 -> -> 0 `i `b ]
+[; ;main.c: 90: RA0 = 0;
+"90
+[e = _RA0 -> -> 0 `i `b ]
+[; ;main.c: 91: RA7 = 0;
+"91
+[e = _RA7 -> -> 0 `i `b ]
+[; ;main.c: 92: RA6 = 0;
+"92
+[e = _RA6 -> -> 0 `i `b ]
+[; ;main.c: 93: RA3 = 1;
+"93
 [e = _RA3 -> -> 1 `i `b ]
-[; ;main.c: 82: RA7 = 1;
-"82
-[e = _RA7 -> -> 1 `i `b ]
-[; ;main.c: 83: RB3 = 1;
-"83
-[e = _RB3 -> -> 1 `i `b ]
-[; ;main.c: 84: }
-"84
+[; ;main.c: 94: RA2 = 1;
+"94
+[e = _RA2 -> -> 1 `i `b ]
+[; ;main.c: 95: RA4 = 0;
+"95
+[e = _RA4 -> -> 0 `i `b ]
+[; ;main.c: 96: }
+"96
 [e :UE 98 ]
 }
-"86
+"98
+[v _fourDisplay `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 98: void fourDisplay(void){
+[e :U _fourDisplay ]
+[f ]
+[; ;main.c: 99: RA1 = 1;
+"99
+[e = _RA1 -> -> 1 `i `b ]
+[; ;main.c: 100: RA0 = 0;
+"100
+[e = _RA0 -> -> 0 `i `b ]
+[; ;main.c: 101: RA7 = 0;
+"101
+[e = _RA7 -> -> 0 `i `b ]
+[; ;main.c: 102: RA6 = 1;
+"102
+[e = _RA6 -> -> 1 `i `b ]
+[; ;main.c: 103: RA3 = 1;
+"103
+[e = _RA3 -> -> 1 `i `b ]
+[; ;main.c: 104: RA2 = 0;
+"104
+[e = _RA2 -> -> 0 `i `b ]
+[; ;main.c: 105: RA4 = 0;
+"105
+[e = _RA4 -> -> 0 `i `b ]
+[; ;main.c: 106: }
+"106
+[e :UE 99 ]
+}
+"109
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 86: int main(void) {
+[; ;main.c: 109: int main(void) {
 [e :U _main ]
 [f ]
-"87
+"110
 [v _temp `uc ~T0 @X0 1 a ]
-[; ;main.c: 87: char temp;
-[; ;main.c: 88: init();
-"88
+[; ;main.c: 110: char temp;
+[; ;main.c: 111: init();
+"111
 [e ( _init ..  ]
-[; ;main.c: 90: while(1){
-"90
-[e :U 101 ]
-{
-[; ;main.c: 91: temp = getche();
-"91
-[e = _temp ( _getche ..  ]
-[; ;main.c: 93: if (temp == '1')
-"93
-[e $ ! == -> _temp `ui -> 49 `ui 103  ]
-[; ;main.c: 94: drawOne();
-"94
-[e ( _drawOne ..  ]
-[e $U 104  ]
-"95
-[e :U 103 ]
-[; ;main.c: 95: else if (temp == '2')
-[e $ ! == -> _temp `ui -> 50 `ui 105  ]
-[; ;main.c: 96: drawTwo();
-"96
-[e ( _drawTwo ..  ]
-[e $U 106  ]
-"97
-[e :U 105 ]
-[; ;main.c: 97: else if (temp == '3')
-[e $ ! == -> _temp `ui -> 51 `ui 107  ]
-[; ;main.c: 98: drawThree();
-"98
-[e ( _drawThree ..  ]
-[e $U 108  ]
-"99
-[e :U 107 ]
-[; ;main.c: 99: else {
-{
-[; ;main.c: 100: allOff();
-"100
-[e ( _allOff ..  ]
-[; ;main.c: 101: RB3 = 1;
-"101
-[e = _RB3 -> -> 1 `i `b ]
-"102
-}
-[e :U 108 ]
-[e :U 106 ]
-[e :U 104 ]
-"103
-}
-[e :U 100 ]
-"90
-[e $U 101  ]
+"112
+[v _validAddress `i ~T0 @X0 1 a ]
+[; ;main.c: 112: int validAddress = 0;
+[e = _validAddress -> 0 `i ]
+"113
+[v _command `uc ~T0 @X0 1 a ]
+"114
+[v _checksum `uc ~T0 @X0 1 a ]
+[; ;main.c: 113: char command;
+[; ;main.c: 114: char checksum;
+[; ;main.c: 116: while(1){
+"116
 [e :U 102 ]
-[; ;main.c: 102: }
-[; ;main.c: 103: }
-[; ;main.c: 104: }
-"104
-[e :UE 99 ]
+{
+[; ;main.c: 117: temp = getche();
+"117
+[e = _temp ( _getche ..  ]
+[; ;main.c: 119: if (validAddress == 0 && temp == 0b01011011)
+"119
+[e $ ! && == _validAddress -> 0 `i == -> _temp `i -> 91 `i 104  ]
+[; ;main.c: 120: {
+"120
+{
+[; ;main.c: 121: validAddress = 1;
+"121
+[e = _validAddress -> 1 `i ]
+"122
+}
+[e :U 104 ]
+[; ;main.c: 122: }
+[; ;main.c: 123: if (validAddress)
+"123
+[e $ ! != _validAddress -> 0 `i 105  ]
+[; ;main.c: 124: {
+"124
+{
+[; ;main.c: 125: command = getche();
+"125
+[e = _command ( _getche ..  ]
+[; ;main.c: 126: checksum = getche();
+"126
+[e = _checksum ( _getche ..  ]
+[; ;main.c: 127: if (command == checksum)
+"127
+[e $ ! == -> _command `i -> _checksum `i 106  ]
+[; ;main.c: 128: {
+"128
+{
+[; ;main.c: 129: switch(command)
+"129
+[e $U 108  ]
+[; ;main.c: 130: {
+"130
+{
+[; ;main.c: 131: case 0b01100001:
+"131
+[e :U 109 ]
+[; ;main.c: 132: RA0 = 1;
+"132
+[e = _RA0 -> -> 1 `i `b ]
+[; ;main.c: 133: RA1 = 0;
+"133
+[e = _RA1 -> -> 0 `i `b ]
+[; ;main.c: 134: break;
+"134
+[e $U 107  ]
+[; ;main.c: 135: case 0b01100010:
+"135
+[e :U 110 ]
+[; ;main.c: 136: RA0 = 0;
+"136
+[e = _RA0 -> -> 0 `i `b ]
+[; ;main.c: 137: RA1 = 1;
+"137
+[e = _RA1 -> -> 1 `i `b ]
+[; ;main.c: 138: break;
+"138
+[e $U 107  ]
+[; ;main.c: 139: default:
+"139
+[e :U 111 ]
+[; ;main.c: 140: RA0 = 0;
+"140
+[e = _RA0 -> -> 0 `i `b ]
+[; ;main.c: 141: RA1 = 0;
+"141
+[e = _RA1 -> -> 0 `i `b ]
+"142
+}
+[; ;main.c: 142: }
+[e $U 107  ]
+"129
+[e :U 108 ]
+[e [\ _command , $ -> -> 97 `i `uc 109
+ , $ -> -> 98 `i `uc 110
+ 111 ]
+"142
+[e :U 107 ]
+[; ;main.c: 143: validAddress = 0;
+"143
+[e = _validAddress -> 0 `i ]
+"144
+}
+[e :U 106 ]
+"145
+}
+[; ;main.c: 144: }
+[; ;main.c: 145: }
+[e $U 112  ]
+"146
+[e :U 105 ]
+[; ;main.c: 146: else
+[; ;main.c: 147: {
+"147
+{
+[; ;main.c: 148: validAddress = 0;
+"148
+[e = _validAddress -> 0 `i ]
+"150
+}
+[e :U 112 ]
+"152
+}
+[e :U 101 ]
+"116
+[e $U 102  ]
+[e :U 103 ]
+[; ;main.c: 150: }
+[; ;main.c: 152: }
+[; ;main.c: 153: }
+"153
+[e :UE 100 ]
 }

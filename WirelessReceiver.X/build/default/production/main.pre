@@ -1430,54 +1430,103 @@ PORTB = 0x00;
 
 init_comms();
 }
-allOff(void){
-RB1 = 0;
-RB0 = 0;
-RA3 = 0;
-RA7 = 0;
-RA6 = 0;
-RB4 = 0;
-RB3 = 0;
-}
-drawOne(void){
-allOff();
-RB0 = 1;
-RA3 = 1;
-}
-drawTwo(void){
-allOff();
-RB1 = 1;
-RB0 = 1;
+barDisplay(void){
+RA1 = 1;
+RA0 = 1;
 RA7 = 1;
 RA6 = 1;
-RB3 = 1;
-}
-drawThree(void){
-allOff();
-RB1 = 1;
-RB0 = 1;
 RA3 = 1;
-RA7 = 1;
-RB3 = 1;
+RA2 = 1;
+RA4 = 0;
 }
+
+
+void oneDisplay(void){
+RA1 = 1;
+RA0 = 0;
+RA7 = 0;
+RA6 = 1;
+RA3 = 1;
+RA2 = 1;
+RA4 = 1;
+}
+
+
+void twoDisplay(void){
+RA1 = 0;
+RA0 = 0;
+RA7 = 1;
+RA6 = 0;
+RA3 = 0;
+RA2 = 1;
+RA4 = 0;
+}
+
+
+void threeDisplay(void){
+RA1 = 0;
+RA0 = 0;
+RA7 = 0;
+RA6 = 0;
+RA3 = 1;
+RA2 = 1;
+RA4 = 0;
+}
+
+void fourDisplay(void){
+RA1 = 1;
+RA0 = 0;
+RA7 = 0;
+RA6 = 1;
+RA3 = 1;
+RA2 = 0;
+RA4 = 0;
+}
+
 
 int main(void) {
 char temp;
 init();
+int validAddress = 0;
+char command;
+char checksum;
 
 while(1){
 temp = getche();
 
-if (temp == '1')
-drawOne();
-else if (temp == '2')
-drawTwo();
-else if (temp == '3')
-drawThree();
-else {
-allOff();
-RB3 = 1;
+if (validAddress == 0 && temp == 0b01011011)
+{
+validAddress = 1;
 }
+if (validAddress)
+{
+command = getche();
+checksum = getche();
+if (command == checksum)
+{
+switch(command)
+{
+case 0b01100001:
+RA0 = 1;
+RA1 = 0;
+break;
+case 0b01100010:
+RA0 = 0;
+RA1 = 1;
+break;
+default:
+RA0 = 0;
+RA1 = 0;
+}
+validAddress = 0;
+}
+}
+else
+{
+validAddress = 0;
+
+}
+
 }
 }
 

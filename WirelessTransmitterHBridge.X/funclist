@@ -1,0 +1,6 @@
+_init: CODE, 1968 0 13
+_putch: CODE, 1956 0 12
+_main: CODE, 1996 0 52
+__initialization: CODE, 1953 0 0
+_init_comms: CODE, 1981 0 15
+Total: 92

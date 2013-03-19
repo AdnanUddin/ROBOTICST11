@@ -30,7 +30,7 @@
         <targetDevice>PIC16F88</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PICkit3PlatformTool</platformTool>
+        <platformTool>PICkit2PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>1.12</languageToolchainVersion>
         <platform>3</platform>
@@ -58,6 +58,13 @@
       </HI-TECH-COMP>
       <HI-TECH-LINK>
       </HI-TECH-LINK>
+      <PICkit2PlatformTool>
+        <property key="pk2settings.3state" value="false"/>
+        <property key="pk2settings.preserveee" value="false"/>
+        <property key="pk2settings.setvddvoltage" value="5.00"/>
+        <property key="pk2settings.userpgmexec" value="true"/>
+        <property key="pk2settings.usetargetpower" value="false"/>
+      </PICkit2PlatformTool>
       <PICkit3PlatformTool>
         <property key="AutoSelectMemRanges" value="auto"/>
         <property key="Freeze Peripherals" value="false"/>
@@ -86,7 +93,7 @@
         <property key="programoptions.preserveuserid" value="false"/>
         <property key="programoptions.usehighvoltageonmclr" value="false"/>
         <property key="programoptions.uselvpprogramming" value="false"/>
-        <property key="voltagevalue" value="5.0"/>
+        <property key="voltagevalue" value="3.25"/>
       </PICkit3PlatformTool>
       <XC8-config-global>
       </XC8-config-global>

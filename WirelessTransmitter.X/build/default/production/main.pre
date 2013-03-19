@@ -1417,11 +1417,11 @@ unsigned char getche(void);
 # 25 "main.c"
 #pragma config BOREN = OFF, CPD = OFF, CCPMX = RB0, DEBUG = OFF, WRT = OFF, FOSC = INTOSCIO, MCLRE = OFF, WDTE = OFF, CP = OFF, LVP = OFF, PWRTE = OFF, IESO = OFF, FCMEN = OFF
 
-# 32
+# 35
 void init(void){
 
 OSCCON = 0b01100000;
-TRISA = 0x00;
+TRISA = 0x0F;
 TRISB = 0b000000100;
 ANSEL = 0x00;
 
@@ -1433,12 +1433,21 @@ int main(void) {
 init();
 
 while(1){
-putch('1');
-_delay((unsigned long)((500)*(4000000/4000.0)));
-putch('2');
-_delay((unsigned long)((500)*(4000000/4000.0)));
-putch('3');
-_delay((unsigned long)((500)*(4000000/4000.0)));
+if(RA0 == 0) {
+putch(0b01011011);
+putch(0b01100001);
+putch(0b01100001);
+}
+else if(RA1 == 0) {
+putch(0b01011011);
+putch(0b01100010);
+putch(0b01100010);
+}
+else {
+putch(0b01011011);
+putch(0b01100000);
+putch(0b01100000);
+}
 }
 }
 

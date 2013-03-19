@@ -29,16 +29,16 @@
 #define ON 1 //Define on State for LEDS
 #define OFF 0 //Define off state for LEDS
 
-#define A RB1
-#define B RB0
-#define C RA3
-#define D RA7
-#define E RA6
-#define F RB4
-#define G RB3
+#define A RA1
+#define B RA0
+#define C RA7
+#define D RA6
+#define E RA3
+#define F RA2
+#define G RA4
 
-#define ON 1
-#define OFF 0
+#define LOW 0
+#define HIGH 1
 
 void init(void){
 
@@ -52,54 +52,103 @@ void init(void){
 
     init_comms(); //Prepare the usart
 }
-allOff(void){
-    A = OFF;
-    B = OFF;
-    C = OFF;
-    D = OFF; 
-    E = OFF;
-    F = OFF;
-    G = OFF;
+barDisplay(void){
+    A = HIGH;
+    B = HIGH;
+    C = HIGH;
+    D = HIGH;
+    E = HIGH;
+    F = HIGH;
+    G = LOW;
 }
-drawOne(void){
-    allOff();
-    B = ON;
-    C = ON;
+
+// Display 1 on the 7 Segment Display (ACTIVE_LOW)
+void oneDisplay(void){
+    A = HIGH;
+    B = LOW;
+    C = LOW;
+    D = HIGH;
+    E = HIGH;
+    F = HIGH;
+    G = HIGH;
 }
-drawTwo(void){
-    allOff();
-    A = ON;
-    B = ON;
-    D = ON;
-    E = ON;
-    G = ON;
+
+// Display 2 on the 7 Segment Display (ACTIVE_LOW)
+void twoDisplay(void){
+    A = LOW;
+    B = LOW;
+    C = HIGH;
+    D = LOW;
+    E = LOW;
+    F = HIGH;
+    G = LOW;
 }
-drawThree(void){
-    allOff();
-    A = ON;
-    B = ON;
-    C = ON;
-    D = ON;
-    G = ON;
+
+// Display 3 on the 7 Segment Display (ACTIVE_LOW)
+void threeDisplay(void){
+    A = LOW;
+    B = LOW;
+    C = LOW;
+    D = LOW;
+    E = HIGH;
+    F = HIGH;
+    G = LOW;
 }
+
+void fourDisplay(void){
+    A = HIGH;
+    B = LOW;
+    C = LOW;
+    D = HIGH;
+    E = HIGH;
+    F = LOW;
+    G = LOW;
+}
+
 
 int main(void) {
     char temp;
     init(); //Intialize the setups
+    int validAddress = 0;
+    char command;
+    char checksum;
 
     while(1){
         temp = getche();
 
-        if (temp == '1')
-            drawOne();
-        else if (temp == '2')
-            drawTwo();
-        else if (temp == '3')
-            drawThree();
-        else {
-            allOff();
-            G = ON;
+        if (validAddress == 0 && temp ==  0b01011011)
+        {
+            validAddress =  1;
         }
+        if (validAddress)
+        {
+            command = getche();
+            checksum = getche();
+            if (command == checksum)
+            {
+                switch(command)
+                {
+                        case 0b01100001:
+                            RA0 = HIGH;
+                            RA1 = LOW;
+                            break;
+                        case 0b01100010:
+                            RA0 = LOW;
+                            RA1 = HIGH;
+                            break;
+                        default:
+                            RA0 = LOW;
+                            RA1 = LOW;
+                }
+                validAddress = 0;
+            }
+        }
+        else
+        {
+            validAddress = 0;
+    //        command = '0';
+        }
+
     }
 }
 
