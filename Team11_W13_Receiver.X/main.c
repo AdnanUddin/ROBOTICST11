@@ -63,7 +63,9 @@ int main(void) {
    char motorLeft;
    char motorRight;
    char teamLED;
+   char temp;
    char command;
+   char checksum;
 
    int leftForward = FALSE;
    int rightForward = FALSE;
@@ -71,67 +73,86 @@ int main(void) {
    int rightBackward = FALSE;
 
    while(TRUE){
-        if (RA6 == 1) {
-            teamLED = 0b00010000;
+
+        temp = getche();
+
+        if (temp ==  0b01011011)
+        {
+            command = getche();
+            checksum = getche();
+            if (command == checksum)
+            {
+                switch(command)
+                {
+                    case 0b01100001:
+                        RA0 = HIGH;
+                        RA1 = LOW;
+                        break;
+                    case 0b01100010:
+                        RA0 = LOW;
+                        RA1 = HIGH;
+                        break;
+                    default:
+                        RA0 = LOW;
+                        RA1 = LOW;
+                }
+            }
         }
-        else {
-            teamLED = 0b00000000;
+        else
+        {
+            RA0 = LOW;
+            RA1 = LOW;
         }
+
+
 
          // Pressing FORWARD_LEFT (ACTIVE_LOW)
         if(FORWARD_LEFT_BUTTON == LOW && leftBackward == FALSE) {
             leftForward = TRUE;
-            motorLeft = 0b00000100;
+            FORWARD_LEFT = HIGH;
             __delay_ms(100);
         }
-        else if (FORWARD_LEFT_BUTTON == HIGH && leftForward == TRUE) {
+        if(FORWARD_LEFT_BUTTON == HIGH && leftForward == TRUE) {
             leftForward = FALSE;
-            motorLeft = 0b00000000;
+            FORWARD_LEFT = LOW;
             __delay_ms(100);
         }
 
         // Pressing FORWARD_RIGHT (ACTIVE_LOW)
         if(FORWARD_RIGHT_BUTTON == LOW && rightBackward == FALSE) {
             rightForward = TRUE;
-            motorRight = 0b00000001;
+            FORWARD_RIGHT = HIGH;
             __delay_ms(100);
         }
-        else if(FORWARD_RIGHT_BUTTON == HIGH && rightForward == TRUE) {
+        if(FORWARD_RIGHT_BUTTON == HIGH && rightForward == TRUE) {
             rightForward = FALSE;
-            motorRight = 0b00000000;
+            FORWARD_RIGHT = LOW;
             __delay_ms(100);
         }
 
         // Pressing BACKWARD_LEFT (ACTIVE_LOW)
         if(BACKWARD_LEFT_BUTTON == LOW && leftForward == FALSE) {
             leftBackward = TRUE;
-            motorLeft = 0b00001000;
+            BACKWARD_LEFT = HIGH;
             __delay_ms(100);
         }
-        else if(BACKWARD_LEFT_BUTTON == HIGH && leftBackward == TRUE) {
+        if(BACKWARD_LEFT_BUTTON == HIGH && leftBackward == TRUE) {
             leftBackward = FALSE;
-            motorLeft = 0b00000000;
+            BACKWARD_LEFT = LOW;
             __delay_ms(100);
         }
 
         // Pressing BACKWARD_RIGHT (ACTIVE_LOW)
         if(BACKWARD_RIGHT_BUTTON == LOW && rightForward == FALSE) {
             rightBackward = TRUE;
-            motorRight = 0b00000010;
+            BACKWARD_RIGHT = HIGH;
             __delay_ms(100);
         }
         if(BACKWARD_RIGHT_BUTTON == HIGH && rightBackward == TRUE) {
             rightBackward = FALSE;
-            motorRight = 0b00000000;
+            BACKWARD_RIGHT = LOW;
             __delay_ms(100);
         }
-
-        // Address Byte
-        putch(0b01011011);
-        command = ((0b011|teamLED)|motorLeft)|motorRight;
-        putch(command);
-        putch(command);
-
     }
 }
 

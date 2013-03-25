@@ -1,8 +1,12 @@
-_init: CODE, 1944 0 16
-_putch: CODE, 1917 0 12
-_main: CODE, 1960 0 88
-_getche: CODE, 1896 0 10
-__initialization: CODE, 1893 0 0
-_getch: CODE, 1906 0 11
-_init_comms: CODE, 1929 0 15
-Total: 152
+_init: CODE, 1980 0 16
+_putch: CODE, 1953 0 12
+_main: CODE, 1996 0 52
+_getche: CODE, 1900 0 10
+__initialization: CODE, 1889 0 0
+_allOff: CODE, 1910 0 10
+_drawThree: CODE, 1931 0 11
+_getch: CODE, 1920 0 11
+_drawTwo: CODE, 1942 0 11
+_init_comms: CODE, 1965 0 15
+_drawOne: CODE, 1892 0 8
+Total: 156

@@ -1417,7 +1417,7 @@ unsigned char getche(void);
 # 25 "main.c"
 #pragma config BOREN = OFF, CPD = OFF, CCPMX = RB0, DEBUG = OFF, WRT = OFF, FOSC = INTOSCIO, MCLRE = OFF, WDTE = OFF, CP = OFF, LVP = OFF, PWRTE = OFF, IESO = OFF, FCMEN = OFF
 
-# 43
+# 51
 void init(void){
 
 OSCCON = 0b01100000;
@@ -1425,63 +1425,81 @@ TRISA = 0x00;
 TRISB = 0b000000100;
 ANSEL = 0x00;
 
-PORTA = 0x00;
-PORTB = 0x00;
-
 init_comms();
 }
 
-allOff(void){
-RB1 = 0;
-RB0 = 0;
-RA3 = 0;
-RA7 = 0;
-RA6 = 0;
-RB4 = 0;
-RB3 = 0;
-}
-
-drawOne(void){
-allOff();
-RB0 = 1;
-RA3 = 1;
-}
-
-drawTwo(void){
-allOff();
-RB1 = 1;
-RB0 = 1;
-RA7 = 1;
-RA6 = 1;
-RB3 = 1;
-}
-
-drawThree(void){
-allOff();
-RB1 = 1;
-RB0 = 1;
-RA3 = 1;
-RA7 = 1;
-RB3 = 1;
-}
-
 int main(void) {
-char temp;
 init();
+char motorLeft;
+char motorRight;
+char teamLED;
+char command;
+
+int leftForward = 0;
+int rightForward = 0;
+int leftBackward = 0;
+int rightBackward = 0;
 
 while(1){
-temp = getche();
-
-if (temp == '1')
-drawOne();
-else if (temp == '2')
-drawTwo();
-else if (temp == '3')
-drawThree();
-else {
-allOff();
-RB3 = 1;
+if (RA6 == 1) {
+teamLED = 0b00010000;
 }
+else {
+teamLED = 0b00000000;
+}
+
+
+if(RA0 == 0 && leftBackward == 0) {
+leftForward = 1;
+motorLeft = 0b00000100;
+_delay((unsigned long)((100)*(4000000/4000.0)));
+}
+else if (RA0 == 1 && leftForward == 1) {
+leftForward = 0;
+motorLeft = 0b00000000;
+_delay((unsigned long)((100)*(4000000/4000.0)));
+}
+
+
+if(RA1 == 0 && rightBackward == 0) {
+rightForward = 1;
+motorRight = 0b00000001;
+_delay((unsigned long)((100)*(4000000/4000.0)));
+}
+else if(RA1 == 1 && rightForward == 1) {
+rightForward = 0;
+motorRight = 0b00000000;
+_delay((unsigned long)((100)*(4000000/4000.0)));
+}
+
+
+if(RA2 == 0 && leftForward == 0) {
+leftBackward = 1;
+motorLeft = 0b00001000;
+_delay((unsigned long)((100)*(4000000/4000.0)));
+}
+else if(RA2 == 1 && leftBackward == 1) {
+leftBackward = 0;
+motorLeft = 0b00000000;
+_delay((unsigned long)((100)*(4000000/4000.0)));
+}
+
+
+if(RA3 == 0 && rightForward == 0) {
+rightBackward = 1;
+motorRight = 0b00000010;
+_delay((unsigned long)((100)*(4000000/4000.0)));
+}
+if(RA3 == 1 && rightBackward == 1) {
+rightBackward = 0;
+motorRight = 0b00000000;
+_delay((unsigned long)((100)*(4000000/4000.0)));
+}
+
+
+putch(0b01011011);
+command = ((0b011|teamLED)|motorLeft)|motorRight;
+
 }
 }
 

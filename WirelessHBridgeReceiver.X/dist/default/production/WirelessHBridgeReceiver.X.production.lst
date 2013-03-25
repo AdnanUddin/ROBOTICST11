@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.12 build 49521 
-                                                                                               Tue Mar 19 12:07:27 2013
+                                                                                               Thu Mar 21 19:53:02 2013
 
 HI-TECH Software Omniscient Code Generator (Lite mode) build 49521
      1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 49521"
@@ -1228,7 +1228,7 @@ DATA                 0      0       0      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.12 build 49521 
-Symbol Table                                                                                   Tue Mar 19 12:07:27 2013
+Symbol Table                                                                                   Thu Mar 21 19:53:02 2013
 
             __CFG_CP$OFF 0000                       l30 07DE                       l23 07BA  
                      l31 07F5                       l32 07E3                       l33 07E8  
