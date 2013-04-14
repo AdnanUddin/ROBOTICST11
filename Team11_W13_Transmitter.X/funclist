@@ -1,6 +1,6 @@
-_init: CODE, 1751 0 12
-_putch: CODE, 1763 0 12
-_main: CODE, 1790 0 258
-__initialization: CODE, 1748 0 0
-_init_comms: CODE, 1775 0 15
-Total: 297
+_init: CODE, 1654 0 13
+_putch: CODE, 1642 0 12
+_main: CODE, 1682 0 366
+__initialization: CODE, 1639 0 0
+_init_comms: CODE, 1667 0 15
+Total: 406

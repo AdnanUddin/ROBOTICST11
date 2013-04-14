@@ -1414,14 +1414,15 @@ unsigned char getch(void);
 unsigned char getche(void);
 
 
-# 26 "main.c"
+# 25 "main.c"
 #pragma config BOREN = OFF, CPD = OFF, CCPMX = RB0, DEBUG = OFF, WRT = OFF, FOSC = INTOSCIO, MCLRE = OFF, WDTE = OFF, CP = OFF, LVP = OFF, PWRTE = OFF, IESO = OFF, FCMEN = OFF
 
-# 44
-void init(void) {
+# 40
+void init(void){
+
 OSCCON = 0b01100000;
-TRISA = 0b11111111;
-TRISB = 0b000000001;
+TRISA = 0x00;
+TRISB = 0b000000000;
 ANSEL = 0x00;
 
 init_comms();
@@ -1429,105 +1430,60 @@ init_comms();
 
 int main(void) {
 init();
-char motorLeft;
-char motorRight;
-char teamLED;
+char temp;
 char command;
+char checksum;
 
-int team = 0;
-int teamButton = 0;
+while(1){
 
-int leftForward = 0;
-int rightForward = 0;
-int leftBackward = 0;
-int rightBackward = 0;
+temp = getche();
 
-while (1) {
 
-if (RB0 == 0 && teamButton == 0) {
-teamButton = 1;
-if (team == 0) {
-team == 1;
+if (temp == 0b01011011) {
+command = getche();
+checksum = getche();
+if (command == checksum && (command&0b11100000) == 0b01100000) {
+
+if (command&0b00000011 == 0b00000001) {
+RA2 = 1;
+RA3 = 0;
+} else if (command&0b00000011 == 0b00000010) {
+RA2 = 0;
+RA3 = 1;
 } else {
-team == 0;
-}
-_delay((unsigned long)((100)*(4000000/4000.0)));
-} else if (RB0 == 1 && teamButton == 1) {
-teamButton = 0;
-_delay((unsigned long)((100)*(4000000/4000.0)));
+RA2 = 0;
+RA3 = 0;
 }
 
 
-if (RA2 == 0 && leftBackward == 0) {
-leftForward = 1;
-_delay((unsigned long)((100)*(4000000/4000.0)));
-} else if (RA2 == 1 && leftForward == 1) {
-leftForward = 0;
-_delay((unsigned long)((100)*(4000000/4000.0)));
+if (command & 0b00001100 == 0b00000100) {
+RA0 = 1;
+RA1 = 0;
+} else if (command & 0b00001100 == 0b00001000) {
+RA0 = 0;
+RA1 = 1;
+} else {
+RA0 = 0;
+RA1 = 0;
 }
 
 
-if (RA1 == 0 && rightBackward == 0) {
-rightForward = 1;
-_delay((unsigned long)((100)*(4000000/4000.0)));
-} else if (RA1 == 1 && rightForward == 1) {
-rightForward = 0;
-_delay((unsigned long)((100)*(4000000/4000.0)));
-}
-
-
-if (RA3 == 0 && leftForward == 0) {
-leftBackward = 1;
-_delay((unsigned long)((100)*(4000000/4000.0)));
-} else if (RA3 == 1 && leftBackward == 1) {
-leftBackward = 0;
-_delay((unsigned long)((100)*(4000000/4000.0)));
-}
-
-
-if (RA0 == 0 && rightForward == 0) {
-rightBackward = 1;
-_delay((unsigned long)((100)*(4000000/4000.0)));
-}
-if (RA0 == 1 && rightBackward == 1) {
-rightBackward = 0;
-_delay((unsigned long)((100)*(4000000/4000.0)));
-}
-
-
-if(team) {
-teamLED = 0b00010000;
+if (command & 0b0001000 == 0b00010000) {
+RB0 = 1;
+RB1 = 0;
+} else {
+RB0 = 0;
 RB1 = 1;
 }
-else {
-teamLED = 0b00000000;
 }
-
-if(rightForward) {
-motorRight = 0b00000001;
-RB4 = 1;
-} else if (rightBackward) {
-motorRight = 0b00000010;
 } else {
-motorRight = 0b00000000;
+RA0 = 0;
+RA1 = 0;
+RA2 = 0;
+RA3 = 0;
+RB0 = 0;
+RB1 = 0;
 }
-
-if(leftForward) {
-motorLeft = 0b00000100;
-RB3 = 1;
-} else if (leftBackward) {
-motorLeft = 0b00001000;
-} else {
-motorLeft = 0b00000000;
-}
-
-
-
-putch(0b01011011);
-command = ((0b01100000 | teamLED) | motorLeft) | motorRight;
-putch(command);
-putch(command);
-
 }
 }
 

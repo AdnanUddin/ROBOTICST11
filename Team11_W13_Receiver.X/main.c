@@ -1,6 +1,6 @@
 /**
  *@file:   main.c
- *@author: Michael
+ *@author: Joshua David Alfaro
  *
  *@date March 4, 2013, 6:27 PM
  */
@@ -29,30 +29,19 @@
 #define ON 1 //Define on State for LEDS
 #define OFF 0 //Define off state for LEDS
 
-// Define motor control buttons
-#define FORWARD_LEFT_BUTTON RA0
-#define FORWARD_RIGHT_BUTTON RA1
-#define BACKWARD_LEFT_BUTTON RA2
-#define BACKWARD_RIGHT_BUTTON RA3
-
 #define FORWARD_LEFT RB0
 #define FORWARD_RIGHT RB1
 #define BACKWARD_LEFT RB2
 #define BACKWARD_RIGHT RB3
 
-
-// Define constants
-#define TRUE 1
 #define FALSE 0
-
-#define LOW 0
-#define HIGH 1
+#define TRUE 1
 
 void init(void){
 
     OSCCON = 0b01100000;	//set frequency to 4MHz
-    TRISA = 0x00;               // set all pins in PORTA as outputs
-    TRISB = 0b000000100;         // set RB2 as input
+    TRISA = 0x00;               // set all pins as outputs
+    TRISB = 0b000000000;
     ANSEL = 0x00;               // ignore this
 
     init_comms(); //Prepare the usart
@@ -60,98 +49,59 @@ void init(void){
 
 int main(void) {
    init(); // call the function above
-   char motorLeft;
-   char motorRight;
-   char teamLED;
    char temp;
    char command;
    char checksum;
 
-   int leftForward = FALSE;
-   int rightForward = FALSE;
-   int leftBackward = FALSE;
-   int rightBackward = FALSE;
-
    while(TRUE){
-
+        // Receive address and password
         temp = getche();
 
-        if (temp ==  0b01011011)
-        {
+        // Check Address
+        if (temp ==  0b01011011) {
             command = getche();
             checksum = getche();
-            if (command == checksum)
-            {
-                switch(command)
-                {
-                    case 0b01100001:
-                        RA0 = HIGH;
-                        RA1 = LOW;
-                        break;
-                    case 0b01100010:
-                        RA0 = LOW;
-                        RA1 = HIGH;
-                        break;
-                    default:
-                        RA0 = LOW;
-                        RA1 = LOW;
+            if (command == checksum && (command&0b11100000) == 0b01100000) {
+                // Right Motor
+                if (command&0b00000011 == 0b00000001) {
+                    RA2 = ON;
+                    RA3 = OFF;
+                } else if (command&0b00000011 == 0b00000010) {
+                    RA2 = OFF;
+                    RA3 = ON;
+                } else {
+                    RA2 = OFF;
+                    RA3 = OFF;
+                }
+
+                // Left Motor
+                if (command & 0b00001100 == 0b00000100) {
+                    RA0 = ON;
+                    RA1 = OFF;
+                } else if (command & 0b00001100 == 0b00001000) {
+                    RA0 = OFF;
+                    RA1 = ON;
+                } else {
+                    RA0 = OFF;
+                    RA1 = OFF;
+                }
+
+                // Team LED
+                if (command & 0b0001000 == 0b00010000) {
+                    RB0 = ON;
+                    RB1 = OFF;
+                } else {
+                    RB0 = OFF;
+                    RB1 = ON;
                 }
             }
-        }
-        else
-        {
-            RA0 = LOW;
-            RA1 = LOW;
-        }
-
-
-
-         // Pressing FORWARD_LEFT (ACTIVE_LOW)
-        if(FORWARD_LEFT_BUTTON == LOW && leftBackward == FALSE) {
-            leftForward = TRUE;
-            FORWARD_LEFT = HIGH;
-            __delay_ms(100);
-        }
-        if(FORWARD_LEFT_BUTTON == HIGH && leftForward == TRUE) {
-            leftForward = FALSE;
-            FORWARD_LEFT = LOW;
-            __delay_ms(100);
-        }
-
-        // Pressing FORWARD_RIGHT (ACTIVE_LOW)
-        if(FORWARD_RIGHT_BUTTON == LOW && rightBackward == FALSE) {
-            rightForward = TRUE;
-            FORWARD_RIGHT = HIGH;
-            __delay_ms(100);
-        }
-        if(FORWARD_RIGHT_BUTTON == HIGH && rightForward == TRUE) {
-            rightForward = FALSE;
-            FORWARD_RIGHT = LOW;
-            __delay_ms(100);
-        }
-
-        // Pressing BACKWARD_LEFT (ACTIVE_LOW)
-        if(BACKWARD_LEFT_BUTTON == LOW && leftForward == FALSE) {
-            leftBackward = TRUE;
-            BACKWARD_LEFT = HIGH;
-            __delay_ms(100);
-        }
-        if(BACKWARD_LEFT_BUTTON == HIGH && leftBackward == TRUE) {
-            leftBackward = FALSE;
-            BACKWARD_LEFT = LOW;
-            __delay_ms(100);
-        }
-
-        // Pressing BACKWARD_RIGHT (ACTIVE_LOW)
-        if(BACKWARD_RIGHT_BUTTON == LOW && rightForward == FALSE) {
-            rightBackward = TRUE;
-            BACKWARD_RIGHT = HIGH;
-            __delay_ms(100);
-        }
-        if(BACKWARD_RIGHT_BUTTON == HIGH && rightBackward == TRUE) {
-            rightBackward = FALSE;
-            BACKWARD_RIGHT = LOW;
-            __delay_ms(100);
+        } else {
+            RA0 = OFF;
+            RA1 = OFF;
+            RA2 = OFF;
+            RA3 = OFF;
+            RB0 = OFF;
+            RB1 = OFF;
         }
     }
 }

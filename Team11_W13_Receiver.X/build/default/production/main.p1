@@ -10,27 +10,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 "33 usart.h
 [v _init_comms `(v ~T0 @X0 0 ef ]
 [p mainexit ]
-"2260 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
-[v _RB0 `Vb ~T0 @X0 0 e@48 ]
-"151 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic.h
-[v __delay `(v ~T0 @X0 0 ef1`ul ]
-[p i __delay ]
+"23 C:\Program Files (x86)\Microchip\xc8\v1.12\include\conio.h
+[v _getche `(uc ~T0 @X0 0 ef ]
 "2248 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
 [v _RA2 `Vb ~T0 @X0 0 e@42 ]
-"2246
-[v _RA1 `Vb ~T0 @X0 0 e@41 ]
 "2250
 [v _RA3 `Vb ~T0 @X0 0 e@43 ]
 "2244
 [v _RA0 `Vb ~T0 @X0 0 e@40 ]
+"2246
+[v _RA1 `Vb ~T0 @X0 0 e@41 ]
+"2260
+[v _RB0 `Vb ~T0 @X0 0 e@48 ]
 "2262
 [v _RB1 `Vb ~T0 @X0 0 e@49 ]
-"2268
-[v _RB4 `Vb ~T0 @X0 0 e@52 ]
-"2266
-[v _RB3 `Vb ~T0 @X0 0 e@51 ]
-"24 C:\Program Files (x86)\Microchip\xc8\v1.12\include\conio.h
-[v _putch `(v ~T0 @X0 0 ef1`uc ]
 [; ;stdio.h: 8: typedef int ptrdiff_t;
 [; ;stdio.h: 9: typedef unsigned size_t;
 [; ;stdio.h: 10: typedef unsigned short wchar_t;
@@ -1025,7 +1018,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usart.h: 40: void putch(unsigned char);
 [; ;usart.h: 46: unsigned char getch(void);
 [; ;usart.h: 52: unsigned char getche(void);
-"26 main.c
+"25 main.c
 [p x BOREN=OFF ]
 [p x CPD=OFF ]
 [p x CCPMX=RB0 ]
@@ -1039,353 +1032,216 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x PWRTE=OFF ]
 [p x IESO=OFF ]
 [p x FCMEN=OFF ]
-"44
+"40
 [v _init `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 44: void init(void) {
+[; ;main.c: 40: void init(void){
 [e :U _init ]
 [f ]
-[; ;main.c: 45: OSCCON = 0b01100000;
-"45
+[; ;main.c: 42: OSCCON = 0b01100000;
+"42
 [e = _OSCCON -> -> 96 `i `uc ]
-[; ;main.c: 46: TRISA = 0b11111111;
-"46
-[e = _TRISA -> -> 255 `i `uc ]
-[; ;main.c: 47: TRISB = 0b000000001;
-"47
-[e = _TRISB -> -> 1 `i `uc ]
-[; ;main.c: 48: ANSEL = 0x00;
-"48
+[; ;main.c: 43: TRISA = 0x00;
+"43
+[e = _TRISA -> -> 0 `i `uc ]
+[; ;main.c: 44: TRISB = 0b000000000;
+"44
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;main.c: 45: ANSEL = 0x00;
+"45
 [e = _ANSEL -> -> 0 `i `uc ]
-[; ;main.c: 50: init_comms();
-"50
+[; ;main.c: 47: init_comms();
+"47
 [e ( _init_comms ..  ]
-[; ;main.c: 51: }
-"51
+[; ;main.c: 48: }
+"48
 [e :UE 94 ]
 }
-"53
+"50
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 53: int main(void) {
+[; ;main.c: 50: int main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 54: init();
-"54
+[; ;main.c: 51: init();
+"51
 [e ( _init ..  ]
-"55
-[v _motorLeft `uc ~T0 @X0 1 a ]
-"56
-[v _motorRight `uc ~T0 @X0 1 a ]
-"57
-[v _teamLED `uc ~T0 @X0 1 a ]
-"58
+"52
+[v _temp `uc ~T0 @X0 1 a ]
+"53
 [v _command `uc ~T0 @X0 1 a ]
-"60
-[v _team `i ~T0 @X0 1 a ]
-[; ;main.c: 55: char motorLeft;
-[; ;main.c: 56: char motorRight;
-[; ;main.c: 57: char teamLED;
-[; ;main.c: 58: char command;
-[; ;main.c: 60: int team = 0;
-[e = _team -> 0 `i ]
-"61
-[v _teamButton `i ~T0 @X0 1 a ]
-[; ;main.c: 61: int teamButton = 0;
-[e = _teamButton -> 0 `i ]
-"63
-[v _leftForward `i ~T0 @X0 1 a ]
-[; ;main.c: 63: int leftForward = 0;
-[e = _leftForward -> 0 `i ]
-"64
-[v _rightForward `i ~T0 @X0 1 a ]
-[; ;main.c: 64: int rightForward = 0;
-[e = _rightForward -> 0 `i ]
-"65
-[v _leftBackward `i ~T0 @X0 1 a ]
-[; ;main.c: 65: int leftBackward = 0;
-[e = _leftBackward -> 0 `i ]
-"66
-[v _rightBackward `i ~T0 @X0 1 a ]
-[; ;main.c: 66: int rightBackward = 0;
-[e = _rightBackward -> 0 `i ]
-[; ;main.c: 68: while (1) {
-"68
+"54
+[v _checksum `uc ~T0 @X0 1 a ]
+[; ;main.c: 52: char temp;
+[; ;main.c: 53: char command;
+[; ;main.c: 54: char checksum;
+[; ;main.c: 56: while(1){
+"56
 [e :U 97 ]
 {
-[; ;main.c: 70: if (RB0 == 0 && teamButton == 0) {
-"70
-[e $ ! && == -> _RB0 `i -> 0 `i == _teamButton -> 0 `i 99  ]
+[; ;main.c: 58: temp = getche();
+"58
+[e = _temp ( _getche ..  ]
+[; ;main.c: 61: if (temp == 0b01011011) {
+"61
+[e $ ! == -> _temp `i -> 91 `i 99  ]
 {
-[; ;main.c: 71: teamButton = 1;
-"71
-[e = _teamButton -> 1 `i ]
-[; ;main.c: 72: if (team == 0) {
-"72
-[e $ ! == _team -> 0 `i 100  ]
+[; ;main.c: 62: command = getche();
+"62
+[e = _command ( _getche ..  ]
+[; ;main.c: 63: checksum = getche();
+"63
+[e = _checksum ( _getche ..  ]
+[; ;main.c: 64: if (command == checksum && (command&0b11100000) == 0b01100000) {
+"64
+[e $ ! && == -> _command `i -> _checksum `i == & -> _command `i -> 224 `i -> 96 `i 100  ]
 {
-[; ;main.c: 73: team == 1;
-"73
-[e == _team -> 1 `i ]
-"74
-}
-[; ;main.c: 74: } else {
-[e $U 101  ]
-[e :U 100 ]
+[; ;main.c: 66: if (command&0b00000011 == 0b00000001) {
+"66
+[e $ ! != & -> _command `i -> == -> 3 `i -> 1 `i `i -> 0 `i 101  ]
 {
-[; ;main.c: 75: team == 0;
-"75
-[e == _team -> 0 `i ]
-"76
+[; ;main.c: 67: RA2 = 1;
+"67
+[e = _RA2 -> -> 1 `i `b ]
+[; ;main.c: 68: RA3 = 0;
+"68
+[e = _RA3 -> -> 0 `i `b ]
+"69
 }
-[e :U 101 ]
-[; ;main.c: 76: }
-[; ;main.c: 77: _delay((unsigned long)((100)*(4000000/4000.0)));
-"77
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"78
-}
-[; ;main.c: 78: } else if (RB0 == 1 && teamButton == 1) {
+[; ;main.c: 69: } else if (command&0b00000011 == 0b00000010) {
 [e $U 102  ]
-[e :U 99 ]
-[e $ ! && == -> _RB0 `i -> 1 `i == _teamButton -> 1 `i 103  ]
+[e :U 101 ]
+[e $ ! != & -> _command `i -> == -> 3 `i -> 2 `i `i -> 0 `i 103  ]
 {
-[; ;main.c: 79: teamButton = 0;
+[; ;main.c: 70: RA2 = 0;
+"70
+[e = _RA2 -> -> 0 `i `b ]
+[; ;main.c: 71: RA3 = 1;
+"71
+[e = _RA3 -> -> 1 `i `b ]
+"72
+}
+[; ;main.c: 72: } else {
+[e $U 104  ]
+[e :U 103 ]
+{
+[; ;main.c: 73: RA2 = 0;
+"73
+[e = _RA2 -> -> 0 `i `b ]
+[; ;main.c: 74: RA3 = 0;
+"74
+[e = _RA3 -> -> 0 `i `b ]
+"75
+}
+[e :U 104 ]
+[e :U 102 ]
+[; ;main.c: 75: }
+[; ;main.c: 78: if (command & 0b00001100 == 0b00000100) {
+"78
+[e $ ! != & -> _command `i -> == -> 12 `i -> 4 `i `i -> 0 `i 105  ]
+{
+[; ;main.c: 79: RA0 = 1;
 "79
-[e = _teamButton -> 0 `i ]
-[; ;main.c: 80: _delay((unsigned long)((100)*(4000000/4000.0)));
+[e = _RA0 -> -> 1 `i `b ]
+[; ;main.c: 80: RA1 = 0;
 "80
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[e = _RA1 -> -> 0 `i `b ]
 "81
 }
-[e :U 103 ]
-"84
-[e :U 102 ]
-[; ;main.c: 81: }
-[; ;main.c: 84: if (RA2 == 0 && leftBackward == 0) {
-[e $ ! && == -> _RA2 `i -> 0 `i == _leftBackward -> 0 `i 104  ]
-{
-[; ;main.c: 85: leftForward = 1;
-"85
-[e = _leftForward -> 1 `i ]
-[; ;main.c: 86: _delay((unsigned long)((100)*(4000000/4000.0)));
-"86
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"87
-}
-[; ;main.c: 87: } else if (RA2 == 1 && leftForward == 1) {
-[e $U 105  ]
-[e :U 104 ]
-[e $ ! && == -> _RA2 `i -> 1 `i == _leftForward -> 1 `i 106  ]
-{
-[; ;main.c: 88: leftForward = 0;
-"88
-[e = _leftForward -> 0 `i ]
-[; ;main.c: 89: _delay((unsigned long)((100)*(4000000/4000.0)));
-"89
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"90
-}
-[e :U 106 ]
-"93
+[; ;main.c: 81: } else if (command & 0b00001100 == 0b00001000) {
+[e $U 106  ]
 [e :U 105 ]
-[; ;main.c: 90: }
-[; ;main.c: 93: if (RA1 == 0 && rightBackward == 0) {
-[e $ ! && == -> _RA1 `i -> 0 `i == _rightBackward -> 0 `i 107  ]
+[e $ ! != & -> _command `i -> == -> 12 `i -> 8 `i `i -> 0 `i 107  ]
 {
-[; ;main.c: 94: rightForward = 1;
-"94
-[e = _rightForward -> 1 `i ]
-[; ;main.c: 95: _delay((unsigned long)((100)*(4000000/4000.0)));
-"95
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"96
+[; ;main.c: 82: RA0 = 0;
+"82
+[e = _RA0 -> -> 0 `i `b ]
+[; ;main.c: 83: RA1 = 1;
+"83
+[e = _RA1 -> -> 1 `i `b ]
+"84
 }
-[; ;main.c: 96: } else if (RA1 == 1 && rightForward == 1) {
+[; ;main.c: 84: } else {
 [e $U 108  ]
 [e :U 107 ]
-[e $ ! && == -> _RA1 `i -> 1 `i == _rightForward -> 1 `i 109  ]
 {
-[; ;main.c: 97: rightForward = 0;
-"97
-[e = _rightForward -> 0 `i ]
-[; ;main.c: 98: _delay((unsigned long)((100)*(4000000/4000.0)));
-"98
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"99
+[; ;main.c: 85: RA0 = 0;
+"85
+[e = _RA0 -> -> 0 `i `b ]
+[; ;main.c: 86: RA1 = 0;
+"86
+[e = _RA1 -> -> 0 `i `b ]
+"87
 }
-[e :U 109 ]
-"102
 [e :U 108 ]
-[; ;main.c: 99: }
-[; ;main.c: 102: if (RA3 == 0 && leftForward == 0) {
-[e $ ! && == -> _RA3 `i -> 0 `i == _leftForward -> 0 `i 110  ]
+[e :U 106 ]
+[; ;main.c: 87: }
+[; ;main.c: 90: if (command & 0b0001000 == 0b00010000) {
+"90
+[e $ ! != & -> _command `i -> == -> 8 `i -> 16 `i `i -> 0 `i 109  ]
 {
-[; ;main.c: 103: leftBackward = 1;
+[; ;main.c: 91: RB0 = 1;
+"91
+[e = _RB0 -> -> 1 `i `b ]
+[; ;main.c: 92: RB1 = 0;
+"92
+[e = _RB1 -> -> 0 `i `b ]
+"93
+}
+[; ;main.c: 93: } else {
+[e $U 110  ]
+[e :U 109 ]
+{
+[; ;main.c: 94: RB0 = 0;
+"94
+[e = _RB0 -> -> 0 `i `b ]
+[; ;main.c: 95: RB1 = 1;
+"95
+[e = _RB1 -> -> 1 `i `b ]
+"96
+}
+[e :U 110 ]
+"97
+}
+[e :U 100 ]
+"98
+}
+[; ;main.c: 96: }
+[; ;main.c: 97: }
+[; ;main.c: 98: } else {
+[e $U 111  ]
+[e :U 99 ]
+{
+[; ;main.c: 99: RA0 = 0;
+"99
+[e = _RA0 -> -> 0 `i `b ]
+[; ;main.c: 100: RA1 = 0;
+"100
+[e = _RA1 -> -> 0 `i `b ]
+[; ;main.c: 101: RA2 = 0;
+"101
+[e = _RA2 -> -> 0 `i `b ]
+[; ;main.c: 102: RA3 = 0;
+"102
+[e = _RA3 -> -> 0 `i `b ]
+[; ;main.c: 103: RB0 = 0;
 "103
-[e = _leftBackward -> 1 `i ]
-[; ;main.c: 104: _delay((unsigned long)((100)*(4000000/4000.0)));
+[e = _RB0 -> -> 0 `i `b ]
+[; ;main.c: 104: RB1 = 0;
 "104
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[e = _RB1 -> -> 0 `i `b ]
 "105
 }
-[; ;main.c: 105: } else if (RA3 == 1 && leftBackward == 1) {
-[e $U 111  ]
-[e :U 110 ]
-[e $ ! && == -> _RA3 `i -> 1 `i == _leftBackward -> 1 `i 112  ]
-{
-[; ;main.c: 106: leftBackward = 0;
-"106
-[e = _leftBackward -> 0 `i ]
-[; ;main.c: 107: _delay((unsigned long)((100)*(4000000/4000.0)));
-"107
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"108
-}
-[e :U 112 ]
-"111
 [e :U 111 ]
-[; ;main.c: 108: }
-[; ;main.c: 111: if (RA0 == 0 && rightForward == 0) {
-[e $ ! && == -> _RA0 `i -> 0 `i == _rightForward -> 0 `i 113  ]
-{
-[; ;main.c: 112: rightBackward = 1;
-"112
-[e = _rightBackward -> 1 `i ]
-[; ;main.c: 113: _delay((unsigned long)((100)*(4000000/4000.0)));
-"113
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"114
-}
-[e :U 113 ]
-[; ;main.c: 114: }
-[; ;main.c: 115: if (RA0 == 1 && rightBackward == 1) {
-"115
-[e $ ! && == -> _RA0 `i -> 1 `i == _rightBackward -> 1 `i 114  ]
-{
-[; ;main.c: 116: rightBackward = 0;
-"116
-[e = _rightBackward -> 0 `i ]
-[; ;main.c: 117: _delay((unsigned long)((100)*(4000000/4000.0)));
-"117
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"118
-}
-[e :U 114 ]
-[; ;main.c: 118: }
-[; ;main.c: 121: if(team) {
-"121
-[e $ ! != _team -> 0 `i 115  ]
-{
-[; ;main.c: 122: teamLED = 0b00010000;
-"122
-[e = _teamLED -> -> 16 `i `uc ]
-[; ;main.c: 123: RB1 = 1;
-"123
-[e = _RB1 -> -> 1 `i `b ]
-"124
-}
-[; ;main.c: 124: }
-[e $U 116  ]
-"125
-[e :U 115 ]
-[; ;main.c: 125: else {
-{
-[; ;main.c: 126: teamLED = 0b00000000;
-"126
-[e = _teamLED -> -> 0 `i `uc ]
-"127
-}
-[e :U 116 ]
-[; ;main.c: 127: }
-[; ;main.c: 129: if(rightForward) {
-"129
-[e $ ! != _rightForward -> 0 `i 117  ]
-{
-[; ;main.c: 130: motorRight = 0b00000001;
-"130
-[e = _motorRight -> -> 1 `i `uc ]
-[; ;main.c: 131: RB4 = 1;
-"131
-[e = _RB4 -> -> 1 `i `b ]
-"132
-}
-[; ;main.c: 132: } else if (rightBackward) {
-[e $U 118  ]
-[e :U 117 ]
-[e $ ! != _rightBackward -> 0 `i 119  ]
-{
-[; ;main.c: 133: motorRight = 0b00000010;
-"133
-[e = _motorRight -> -> 2 `i `uc ]
-"134
-}
-[; ;main.c: 134: } else {
-[e $U 120  ]
-[e :U 119 ]
-{
-[; ;main.c: 135: motorRight = 0b00000000;
-"135
-[e = _motorRight -> -> 0 `i `uc ]
-"136
-}
-[e :U 120 ]
-[e :U 118 ]
-[; ;main.c: 136: }
-[; ;main.c: 138: if(leftForward) {
-"138
-[e $ ! != _leftForward -> 0 `i 121  ]
-{
-[; ;main.c: 139: motorLeft = 0b00000100;
-"139
-[e = _motorLeft -> -> 4 `i `uc ]
-[; ;main.c: 140: RB3 = 1;
-"140
-[e = _RB3 -> -> 1 `i `b ]
-"141
-}
-[; ;main.c: 141: } else if (leftBackward) {
-[e $U 122  ]
-[e :U 121 ]
-[e $ ! != _leftBackward -> 0 `i 123  ]
-{
-[; ;main.c: 142: motorLeft = 0b00001000;
-"142
-[e = _motorLeft -> -> 8 `i `uc ]
-"143
-}
-[; ;main.c: 143: } else {
-[e $U 124  ]
-[e :U 123 ]
-{
-[; ;main.c: 144: motorLeft = 0b00000000;
-"144
-[e = _motorLeft -> -> 0 `i `uc ]
-"145
-}
-[e :U 124 ]
-[e :U 122 ]
-[; ;main.c: 145: }
-[; ;main.c: 149: putch(0b01011011);
-"149
-[e ( _putch (1 -> -> 91 `i `uc ]
-[; ;main.c: 150: command = ((0b01100000 | teamLED) | motorLeft) | motorRight;
-"150
-[e = _command -> | | | -> 96 `i -> _teamLED `i -> _motorLeft `i -> _motorRight `i `uc ]
-[; ;main.c: 151: putch(command);
-"151
-[e ( _putch (1 _command ]
-[; ;main.c: 152: putch(command);
-"152
-[e ( _putch (1 _command ]
-"154
+"106
 }
 [e :U 96 ]
-"68
+"56
 [e $U 97  ]
 [e :U 98 ]
-[; ;main.c: 154: }
-[; ;main.c: 155: }
-"155
+[; ;main.c: 105: }
+[; ;main.c: 106: }
+[; ;main.c: 107: }
+"107
 [e :UE 95 ]
 }
